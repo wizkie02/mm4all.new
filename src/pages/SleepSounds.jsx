@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackgroundEffect from '../components/BackgroundEffect';
 import AudioVisualizer from '../components/AudioVisualizer';
+import sleepImg1 from '../assets/sleepImg1.png';
+import sleepImg2 from '../assets/sleepImg2.png';
+import morningImg1 from '../assets/morningImg1.png';
 
 const SleepSounds = () => {
   const [playing, setPlaying] = useState(null);
