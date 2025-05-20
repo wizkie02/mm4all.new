@@ -42,14 +42,27 @@ const About = () => {
           <TextContent>
             <SectionTitle>Our Story</SectionTitle>
             <p>
-              MM4All began in 2020 with a simple mission: to make mindfulness and meditation accessible to everyone, regardless of background or experience level.
+              Founded in 2025, Meditation 4 All began with a simple yet powerful idea:
+              In a fast-paced world, everyone deserves a moment of stillness.
             </p>
             <p>
-              Our founder, Sarah Chen, discovered meditation after a particularly stressful period in her corporate career. The practice transformed her life, but she noticed that many resources seemed intimidating or inaccessible to beginners.
+              Our founder, Dirk de Vlaam, had spent years navigating the demands of modern life—tight deadlines, constant notifications, and an overwhelming pressure to stay productive. Along the way, he noticed a deeper pattern: more and more people, both young and old, were feeling disconnected, anxious, and exhausted.
             </p>
             <p>
-              Determined to change this, she assembled a team of mindfulness experts, teachers, and designers to create guided meditations and resources that anyone could use—no prior experience required.
+              Despite the growing awareness of mindfulness, most resources felt too complicated, too spiritual, or too time-consuming for everyday people.
             </p>
+            <p>
+              So he set out to change that.
+            </p>
+            <p>
+              With a team of mindfulness practitioners, educators, and creatives, Dirk created Meditation 4 All—a space where anyone, regardless of experience, age, or background, could find calm through simple, approachable meditation.
+            </p>
+            <StyledMission>
+              Our mission is not to teach perfection.<br />
+              It's to offer peace—in small, honest moments.<br />
+              No pressure. No performance.<br />
+              Just space to breathe.
+            </StyledMission>
           </TextContent>
           <ImageContainer>
             <img src={journeyImg} alt="Our journey" />
@@ -65,19 +78,28 @@ const About = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <TextContent>
-            <SectionTitle>Our Purpose</SectionTitle>
+            <SectionTitle>Our Mission</SectionTitle>
             <p>
-              At MM4All, we believe that mindfulness is a powerful tool for personal growth, stress reduction, and overall wellbeing. We're committed to making these practices approachable and relevant to modern life.
+              At Meditation 4 All, we believe that mindfulness should be a part of everyday life. Our mission is to remove the barriers that prevent people from experiencing the benefits of meditation.
             </p>
             <p>
-              Our approach combines ancient wisdom with contemporary science, creating practices that respect tradition while meeting the unique challenges of today's fast-paced world.
+              We recognize that in today's fast-paced world, finding moments of stillness can seem impossible. That's why we've designed our approach to fit seamlessly into modern life—no complicated techniques, no hour-long sessions, just simple practices that create real impact.
             </p>
             <p>
-              Every meditation, article, and product we offer is designed with one goal in mind: helping you cultivate a more mindful, balanced, and fulfilling life.
+              Through accessible guidance, thoughtful resources, and supportive community, we're creating a world where mindfulness is available to anyone who seeks it.
+            </p>
+            <StyledMission>
+              Our mission is not to teach perfection.<br />
+              It's to offer peace—in small, honest moments.<br />
+              No pressure. No performance.<br />
+              Just space to breathe.
+            </StyledMission>
+            <p>
+              This philosophy guides everything we do—from the meditations we create to the community we build. We're not about achieving some idealized state of enlightenment; we're about helping you find moments of clarity and calm in your daily life.
             </p>
           </TextContent>
           <ImageContainer>
-            <img src={purposeImg} alt="Our purpose" />
+            <img src={purposeImg} alt="Our mission" />
           </ImageContainer>
         </AboutSection>
         
@@ -400,6 +422,14 @@ const TeamRole = styled.div`
 const TeamBio = styled.p`
   color: var(--text-light);
   font-size: 0.9rem;
+`;
+
+const StyledMission = styled.p`
+  font-style: italic;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--lavender-light);
 `;
 
 export default About;
