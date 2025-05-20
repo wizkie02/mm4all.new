@@ -28,6 +28,7 @@ const MeditationLibrary = () => {
       description: "Try this before bed for deep relaxation.",
       thumbnail: sleepImg1,
       category: "sleep",
+      videoID: 'ou6L1s8BgJg',
     },
     {
       id: 2,
@@ -35,6 +36,7 @@ const MeditationLibrary = () => {
       description: "Use this in the workspace to enhance concentration.",
       thumbnail: focusImg1,
       category: "focus",
+      videoID: 'JNB-EuTpQmE',
     },
     {
       id: 3,
@@ -42,6 +44,7 @@ const MeditationLibrary = () => {
       description: "Start your day refreshed and centered.",
       thumbnail: morningImg1,
       category: "morning",
+      videoID: 'tnIZbSzUKi4',
     },
     {
       id: 4,
@@ -49,6 +52,7 @@ const MeditationLibrary = () => {
       description: "Find calm amidst the storm.",
       thumbnail: anxietyImg1,
       category: "anxiety",
+      videoID: 'BErd5XfLEVM',
     },
     {
       id: 5,
@@ -56,6 +60,7 @@ const MeditationLibrary = () => {
       description: "Drift off to a restful sleep.",
       thumbnail: sleepImg2,
       category: "sleep",
+      videoID: 'ou6L1s8BgJg',
     },
     {
       id: 6,
@@ -63,6 +68,7 @@ const MeditationLibrary = () => {
       description: "Enhance your productivity.",
       thumbnail: focusImg2,
       category: "focus",
+      videoID: 'BErd5XfLEVM',
     },
   ];
 

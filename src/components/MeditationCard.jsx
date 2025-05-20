@@ -1,69 +1,90 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { motion, scale } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const MeditationCard = ({ meditation }) => {
-  const { id, title, description, thumbnail, category } = meditation;
+  const { id, title, description, thumbnail, category, videoID } = meditation;
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-  
+
   const handleCardClick = () => {
     navigate(`/meditation/${id}`);
-  };    return (
-    <CardContainer        
-      whileHover={{ 
-        y: -10, 
-        boxShadow: '0 15px 35px rgba(31, 29, 62, 0.15)' 
+  };
+  return (
+    <CardContainer
+      whileHover={{
+        y: -10,
+        boxShadow: "0 15px 35px rgba(31, 29, 62, 0.15)",
       }}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}      
-      transition={{ 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 20, 
-        duration: 0.4 
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        duration: 0.4,
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
     >
       <ThumbnailContainer>
-        <Thumbnail 
-          src={thumbnail} 
-          alt={`${title} Thumbnail`} 
-          as={motion.img}          animate={{ scale: isHovered ? 1.1 : 1 }}
+        {/* <Thumbnail
+          src={thumbnail}
+          alt={`${title} Thumbnail`}
+          as={motion.img}
+          animate={{ scale: isHovered ? 1.1 : 1 }}
           transition={{ duration: 0.15 }}
-        />
-        <PlayButton
+        /> */}
+        <IFrameWrapper
+          as={motion.div}
+          animate={{ scale: isHovered ? 1 : 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          <iframe
+            width={640}
+            height={480}
+            src={`https://www.youtube.com/embed/${videoID}?rel=0&loop=1`}
+            title={title}
+            allowFullScreen
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope;"
+          />
+        </IFrameWrapper>
+        {/* <PlayButton
           as={motion.div}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ 
-            opacity: isHovered ? 1 : 0, 
+          animate={{
+            opacity: isHovered ? 1 : 0,
             scale: isHovered ? 1 : 0.8,
-            y: isHovered ? 0 : 10
+            y: isHovered ? 0 : 10,
           }}
           transition={{ duration: 0.15 }}
         >
-          <motion.svg 
-            width="30" 
-            height="30" 
-            viewBox="0 0 24 24" 
+          <motion.svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
             fill="white"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.1 }}
           >
-            <path d="M8 5v14l11-7z"/>
+            <path d="M8 5v14l11-7z" />
           </motion.svg>
-        </PlayButton>        <CategoryTag
-          as={motion.span}          animate={{ 
+        </PlayButton>{" "} */}
+        {/* <CategoryTag
+          as={motion.span}
+          animate={{
             y: isHovered ? -5 : 0,
-            backgroundColor: isHovered ? 'var(--lavender-darker)' : 'var(--primary-color)'
+            backgroundColor: isHovered
+              ? "var(--lavender-darker)"
+              : "var(--primary-color)",
           }}
           transition={{ duration: 0.15 }}
         >
           {category}
-        </CategoryTag>        <GlowEffect 
+        </CategoryTag> */}
+        <GlowEffect
           as={motion.div}
           animate={{ opacity: isHovered ? 0.7 : 0 }}
           transition={{ duration: 0.15 }}
@@ -71,9 +92,10 @@ const MeditationCard = ({ meditation }) => {
       </ThumbnailContainer>
       <CardContent>
         <Title
-          as={motion.h3}          animate={{ 
-            color: isHovered ? 'var(--lavender-darker)' : 'var(--text-dark)',
-            y: isHovered ? -2 : 0 
+          as={motion.h3}
+          animate={{
+            color: isHovered ? "var(--lavender-darker)" : "var(--text-dark)",
+            y: isHovered ? -2 : 0,
           }}
           transition={{ duration: 0.3 }}
         >
@@ -82,15 +104,16 @@ const MeditationCard = ({ meditation }) => {
         <Description>{description}</Description>
         <TimeIndicator
           as={motion.div}
-          initial={{ width: '0%', opacity: 0 }}          animate={{ 
-            width: isHovered ? '50%' : '0%',
-            opacity: isHovered ? 1 : 0
+          initial={{ width: "0%", opacity: 0 }}
+          animate={{
+            width: isHovered ? "50%" : "0%",
+            opacity: isHovered ? 1 : 0,
           }}
           transition={{ duration: 0.15 }}
         >
           <ClockIcon>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z" />
             </svg>
           </ClockIcon>
           <span>10-15 min</span>
@@ -99,6 +122,23 @@ const MeditationCard = ({ meditation }) => {
     </CardContainer>
   );
 };
+
+const IFrameWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+  }
+`;
 
 const CardContainer = styled(motion.div)`
   background-color: var(--white);
@@ -126,7 +166,11 @@ const PlayButton = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, var(--primary-color), var(--lavender-darker));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--lavender-darker)
+  );
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -194,7 +238,7 @@ const TimeIndicator = styled.div`
   gap: 5px;
   opacity: 0.8;
   overflow: hidden;
-  
+
   span {
     white-space: nowrap;
   }
