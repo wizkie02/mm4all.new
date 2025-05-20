@@ -61,8 +61,8 @@ const Footer = () => {
               <p>No 2, Alley 337, Dinh Cong Street, Hanoi, Vietnam</p>
               <p>
                 Email:{" "}
-                <ContactLink href="mailto:info@dldv.nl">
-                  info@dldv.nl
+                <ContactLink href="mailto:info@mm4all.com">
+                  info@mm4all.com
                 </ContactLink>
               </p>
               <p>

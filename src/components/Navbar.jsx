@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
-import logoImg from '../assets/mm_horizontal.png';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
+import logoImg from "../assets/mm_horizontal.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -18,16 +18,16 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
-  
+
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,18 +35,23 @@ const Navbar = () => {
 
   return (
     <NavContainer scrolled={isScrolled}>
-      <NavWrapper>        <LogoContainer>
+      <NavWrapper>
+        <LogoContainer>
           <Link to="/">
-            <Logo 
-              src={logoImg} 
-              alt="MM4All Logo" 
+            <Logo
+              src={logoImg}
+              alt="MM4All Logo"
               as={motion.img}
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10, duration: 0.15 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 10,
+                duration: 0.15,
+              }}
             />
           </Link>
         </LogoContainer>
-        
         <MobileMenuButton onClick={toggleMobileMenu}>
           <HamburgerIcon open={isMobileMenuOpen}>
             <span></span>
@@ -54,106 +59,161 @@ const Navbar = () => {
             <span></span>
           </HamburgerIcon>
         </MobileMenuButton>
-        
-        <NavLinks isOpen={isMobileMenuOpen}>            <NavItem>            <NavLink 
-              to="/" 
-              active={location.pathname === "/" ? "true" : "false"} 
-            >              <motion.div 
+        <NavLinks isOpen={isMobileMenuOpen}>
+          <NavItem>
+            <NavLink
+              to="/"
+              active={location.pathname === "/" ? "true" : "false"}
+            >
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/" ? "var(--lavender-dark)" : "var(--text-dark)",
+                  color:
+                    location.pathname === "/"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
                   fontWeight: location.pathname === "/" ? "700" : "500",
-                  letterSpacing: location.pathname === "/" ? "0.02em" : "0"
+                  letterSpacing: location.pathname === "/" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 Home
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/meditate" 
-              active={location.pathname === "/meditate" ? "true" : "false"} 
-            >              <motion.div 
+          </NavItem>
+          <NavItem>
+            <NavLink
+              to="/meditate"
+              active={location.pathname === "/meditate" ? "true" : "false"}
+            >
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/meditate" ? "var(--lavender-dark)" : "var(--text-dark)",
+                  color:
+                    location.pathname === "/meditate"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
                   fontWeight: location.pathname === "/meditate" ? "700" : "500",
-                  letterSpacing: location.pathname === "/meditate" ? "0.02em" : "0"
+                  letterSpacing:
+                    location.pathname === "/meditate" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 Meditate
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/sleep-sounds" 
-              active={location.pathname === "/sleep-sounds" ? "true" : "false"} 
-            >              <motion.div 
+          </NavItem>
+          <NavItem>
+            <NavLink
+              to="/sleep-sounds"
+              active={location.pathname === "/sleep-sounds" ? "true" : "false"}
+            >
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/sleep-sounds" ? "var(--lavender-dark)" : "var(--text-dark)",
-                  fontWeight: location.pathname === "/sleep-sounds" ? "700" : "500",
-                  letterSpacing: location.pathname === "/sleep-sounds" ? "0.02em" : "0"
+                  color:
+                    location.pathname === "/sleep-sounds"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
+                  fontWeight:
+                    location.pathname === "/sleep-sounds" ? "700" : "500",
+                  letterSpacing:
+                    location.pathname === "/sleep-sounds" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 Sleep Sounds
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/shop" 
-              active={location.pathname === "/shop" ? "true" : "false"} 
-            >              <motion.div 
+          </NavItem>
+          <NavItem>
+            <ExternalNavLink
+              href="https://shop.mm4all.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/shop" ? "var(--lavender-dark)" : "var(--text-dark)",
+                  color:
+                    location.pathname === "/shop"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
                   fontWeight: location.pathname === "/shop" ? "700" : "500",
-                  letterSpacing: location.pathname === "/shop" ? "0.02em" : "0"
+                  letterSpacing: location.pathname === "/shop" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 Shop
               </motion.div>
-            </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/resources" 
-              active={location.pathname === "/resources" ? "true" : "false"} 
-            >              <motion.div 
+            </ExternalNavLink>
+          </NavItem>{" "}
+          <NavItem>
+            {" "}
+            <NavLink
+              to="/resources"
+              active={location.pathname === "/resources" ? "true" : "false"}
+            >
+              {" "}
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/resources" ? "var(--lavender-dark)" : "var(--text-dark)",
-                  fontWeight: location.pathname === "/resources" ? "700" : "500",
-                  letterSpacing: location.pathname === "/resources" ? "0.02em" : "0"
+                  color:
+                    location.pathname === "/resources"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
+                  fontWeight:
+                    location.pathname === "/resources" ? "700" : "500",
+                  letterSpacing:
+                    location.pathname === "/resources" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 Resources
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/about" 
-              active={location.pathname === "/about" ? "true" : "false"} 
-            >              <motion.div 
+          </NavItem>{" "}
+          <NavItem>
+            {" "}
+            <NavLink
+              to="/about"
+              active={location.pathname === "/about" ? "true" : "false"}
+            >
+              {" "}
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/about" ? "var(--lavender-dark)" : "var(--text-dark)",
+                  color:
+                    location.pathname === "/about"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
                   fontWeight: location.pathname === "/about" ? "700" : "500",
-                  letterSpacing: location.pathname === "/about" ? "0.02em" : "0"
+                  letterSpacing:
+                    location.pathname === "/about" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 About
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink 
-              to="/contact" 
-              active={location.pathname === "/contact" ? "true" : "false"} 
-            >              <motion.div 
+          </NavItem>{" "}
+          <NavItem>
+            {" "}
+            <NavLink
+              to="/contact"
+              active={location.pathname === "/contact" ? "true" : "false"}
+            >
+              {" "}
+              <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
-                  color: location.pathname === "/contact" ? "var(--lavender-dark)" : "var(--text-dark)",
+                  color:
+                    location.pathname === "/contact"
+                      ? "var(--lavender-dark)"
+                      : "var(--text-dark)",
                   fontWeight: location.pathname === "/contact" ? "700" : "500",
-                  letterSpacing: location.pathname === "/contact" ? "0.02em" : "0"
+                  letterSpacing:
+                    location.pathname === "/contact" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
@@ -165,7 +225,7 @@ const Navbar = () => {
       </NavWrapper>
     </NavContainer>
   );
-}
+};
 
 const NavContainer = styled.nav`
   background-color: rgba(245, 243, 255, 0.9);
@@ -194,7 +254,7 @@ const Logo = styled.img`
   height: 50px;
   width: auto;
   transition: var(--transition);
-  
+
   &:hover {
     transform: scale(1.05);
   }
@@ -204,11 +264,11 @@ const NavLinks = styled.ul`
   display: flex;
   gap: 2rem;
   list-style: none;
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 80px;
-    left: ${props => props.isOpen ? '0' : '-100%'};
+    left: ${(props) => (props.isOpen ? "0" : "-100%")};
     flex-direction: column;
     width: 100%;
     height: calc(100vh - 80px);
@@ -217,6 +277,23 @@ const NavLinks = styled.ul`
     transition: left 0.3s ease;
     z-index: 99;
     box-shadow: var(--shadow);
+  }
+`;
+
+const ExternalNavLink = styled.a`
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: var(--transition);
+
+  /* You might want to apply the same hover/active styles as NavLink if desired */
+  &:hover {
+    transform: translateY(-2px); /* Example hover effect */
   }
 `;
 
@@ -232,7 +309,7 @@ const NavLink = styled(Link)`
   display: block;
   cursor: pointer;
   transition: var(--transition);
-  
+
   /* Add subtle scaling effect when active */
   &[active="true"] {
     transform: scale(1.02);
@@ -244,7 +321,7 @@ const MobileMenuButton = styled.button`
   display: none;
   background: none;
   border: none;
-  
+
   @media (max-width: 768px) {
     display: block;
     z-index: 100;
@@ -255,8 +332,9 @@ const HamburgerIcon = styled.div`
   width: 30px;
   height: 25px;
   position: relative;
-  
-  span {    display: block;
+
+  span {
+    display: block;
     position: absolute;
     height: 3px;
     width: 100%;
@@ -266,20 +344,20 @@ const HamburgerIcon = styled.div`
     left: 0;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
-    
+
     &:nth-child(1) {
-      top: ${props => props.open ? '10px' : '0px'};
-      transform: ${props => props.open ? 'rotate(135deg)' : 'rotate(0)'};
+      top: ${(props) => (props.open ? "10px" : "0px")};
+      transform: ${(props) => (props.open ? "rotate(135deg)" : "rotate(0)")};
     }
-    
+
     &:nth-child(2) {
       top: 10px;
-      opacity: ${props => props.open ? '0' : '1'};
+      opacity: ${(props) => (props.open ? "0" : "1")};
     }
-    
+
     &:nth-child(3) {
-      top: ${props => props.open ? '10px' : '20px'};
-      transform: ${props => props.open ? 'rotate(-135deg)' : 'rotate(0)'};
+      top: ${(props) => (props.open ? "10px" : "20px")};
+      transform: ${(props) => (props.open ? "rotate(-135deg)" : "rotate(0)")};
     }
   }
 `;
