@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`  :root {
-    --primary-color: #A19BE8;  /* Main lavender purple */
+    --primary-color: #A09BE7;  /* Main lavender purple */
     --primary-color-rgb: 161, 155, 232;
     --secondary-color: #A19FBE; /* Muted lavender for accents */
     --tertiary-color: #F0EFFC; /* Very light lavender for backgrounds */

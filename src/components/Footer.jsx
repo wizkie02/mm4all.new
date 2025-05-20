@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF } from 'react-icons/fa';
-import { FaTiktok } from 'react-icons/fa';
-import logo from '../assets/mm_stacked.png';
+import React, { useState } from "react";
+import styled from "styled-components";
+import {
+  FaYoutube,
+  FaInstagram,
+  FaLinkedin,
+  FaFacebookF,
+} from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import logo from "../assets/mm_stacked.png";
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email.trim() !== '') {
+    if (email.trim() !== "") {
       // This would normally connect to a backend API
-      console.log('Subscribing email:', email);
+      console.log("Subscribing email:", email);
       setSubscribed(true);
-      setEmail('');
-      
+      setEmail("");
+
       // Reset after 3 seconds
       setTimeout(() => {
         setSubscribed(false);
@@ -24,57 +29,90 @@ const Footer = () => {
   };
 
   return (
-    <FooterContainer>      
+    <FooterContainer>
       <FooterContent>
         <LeftGroup>
           <LogoSection>
             <Logo src={logo} alt="Meditation and Mindfulness 4 All" />
           </LogoSection>
-          
+
           <EmailSignup>
             <h3>Stay Connected</h3>
             <p>Join our newsletter for mindfulness tips and updates</p>
             <FormContainer onSubmit={handleSubmit}>
-              <EmailInput 
-                type="email" 
-                placeholder="Your email address" 
-                required 
+              <EmailInput
+                type="email"
+                placeholder="Your email address"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <SubscribeButton type="submit">
-                {subscribed ? 'Subscribed!' : 'Subscribe'}
+                {subscribed ? "Subscribed!" : "Subscribe"}
               </SubscribeButton>
             </FormContainer>
           </EmailSignup>
         </LeftGroup>
-        
+
         <RightGroup>
           <ContactSection>
             <h3>Contact Us</h3>
             <ContactInfo>
               <p>No 2, Alley 337, Dinh Cong Street, Hanoi, Vietnam</p>
-              <p>Email: <ContactLink href="mailto:info@dldv.nl">info@dldv.nl</ContactLink></p>
-              <p>Phone: <ContactLink href="tel:+6581095789">+65 8109 5789</ContactLink></p>
+              <p>
+                Email:{" "}
+                <ContactLink href="mailto:info@dldv.nl">
+                  info@dldv.nl
+                </ContactLink>
+              </p>
+              <p>
+                Phone:{" "}
+                <ContactLink href="tel:+6581095789">+65 8109 5789</ContactLink>
+              </p>
             </ContactInfo>
           </ContactSection>
-          
+
           <SocialSection>
             <h3>Follow Us</h3>
             <SocialIcons>
-              <SocialLink href="https://www.youtube.com/@Meditationandmindfulness-4all" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <SocialLink
+                href="https://www.youtube.com/@Meditationandmindfulness-4all"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
                 <FaYoutube />
               </SocialLink>
-              <SocialLink href="https://www.instagram.com/meditation4all._/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <SocialLink
+                href="https://www.instagram.com/meditation4all._/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <FaInstagram />
               </SocialLink>
-              <SocialLink href="https://www.facebook.com/profile.php?id=61576010463402" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <SocialLink
+                href="https://www.facebook.com/profile.php?id=61576010463402"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <FaFacebookF />
               </SocialLink>
-              <SocialLink href="https://www.tiktok.com/@meditation4all._" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <SocialLink
+                href="https://www.tiktok.com/@meditation4all._"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
                 <FaTiktok />
               </SocialLink>
-              <SocialLink href="https://www.linkedin.com/company/mm4all/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <SocialLink
+                href="https://www.linkedin.com/company/mm4all/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <FaLinkedin />
               </SocialLink>
             </SocialIcons>
@@ -82,23 +120,25 @@ const Footer = () => {
         </RightGroup>
       </FooterContent>
       <FooterNote>
-        <p>© {new Date().getFullYear()} Meditation and Mindfulness 4 All. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} Meditation and Mindfulness 4 All. All
+          rights reserved.
+        </p>
       </FooterNote>
     </FooterContainer>
   );
-}
+};
 
 const FooterContainer = styled.footer`
   background-color: var(--lavender-darker);
-  padding: 3rem 0 1rem;
-  margin-top: 2rem;
+  padding: 3rem 0 0;
   color: var(--white);
   box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -108,9 +148,9 @@ const FooterContainer = styled.footer`
     opacity: 0.5;
     pointer-events: none;
   }
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -132,7 +172,7 @@ const FooterContent = styled.div`
   margin: 0 auto;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(197, 193, 242, 0.3);
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -142,7 +182,7 @@ const LeftGroup = styled.div`
   display: flex;
   flex: 1.2;
   gap: 1rem; /* Reduced gap between logo and email signup */
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -153,7 +193,7 @@ const RightGroup = styled.div`
   display: flex;
   flex: 1;
   gap: 2rem;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -173,13 +213,13 @@ const LogoSection = styled.div`
 const EmailSignup = styled.div`
   flex: 1.6;
   min-width: 280px;
-  
+
   h3 {
     margin-bottom: 0.75rem;
     color: var(--white);
     text-shadow: 0 0 5px rgba(197, 193, 242, 0.5);
   }
-  
+
   p {
     margin-bottom: 1.25rem;
     color: rgba(255, 255, 255, 0.8);
@@ -191,7 +231,7 @@ const FormContainer = styled.form`
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
-  
+
   @media (min-width: 768px) {
     flex-wrap: nowrap;
   }
@@ -207,21 +247,25 @@ const EmailInput = styled.input`
   transition: var(--transition);
   background-color: rgba(255, 255, 255, 0.08);
   color: var(--white);
-  
+
   &:focus {
     outline: none;
     border-color: var(--lavender-light);
     box-shadow: 0 0 0 2px rgba(197, 193, 242, 0.3);
     background-color: rgba(255, 255, 255, 0.12);
   }
-  
+
   &::placeholder {
     color: rgba(255, 255, 255, 0.6);
   }
 `;
 
 const SubscribeButton = styled.button`
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--lavender) 0%,
+    var(--lavender-dark) 100%
+  );
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px; /* Increased for more rounding */
@@ -233,28 +277,32 @@ const SubscribeButton = styled.button`
   display: flex; /* Added to center text */
   align-items: center; /* Center text vertically */
   justify-content: center; /* Center text horizontally */
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(31, 29, 62, 0.3);
-    
+
     &::after {
       opacity: 1;
     }
   }
-  
+
   &:active {
     transform: translateY(0);
   }
@@ -263,7 +311,7 @@ const SubscribeButton = styled.button`
 const SocialSection = styled.div`
   flex: 1;
   min-width: 200px; /* Adjusted to be more consistent */
-  
+
   h3 {
     margin-bottom: 1rem;
     color: var(--white);
@@ -284,7 +332,7 @@ const SocialLink = styled.a`
   font-size: 1.5rem;
   color: var(--lavender-light);
   transition: all 0.2s ease;
-  
+
   &:hover {
     color: var(--white);
     transform: translateY(-2px);
@@ -294,7 +342,7 @@ const SocialLink = styled.a`
 const ContactSection = styled.div`
   flex: 1;
   min-width: 220px; /* Adjusted to be more consistent */
-  
+
   h3 {
     margin-bottom: 1rem;
     color: var(--white);
@@ -305,8 +353,8 @@ const ContactSection = styled.div`
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  
+  gap: 0;
+
   p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
@@ -318,7 +366,7 @@ const ContactLink = styled.a`
   color: var(--lavender-light);
   text-decoration: none;
   transition: all 0.2s ease;
-  
+
   &:hover {
     color: var(--white);
     text-decoration: underline;
@@ -331,10 +379,10 @@ const FooterNote = styled.div`
   margin: 1.5rem auto 0;
   text-align: center;
   font-size: 0.9rem;
-  color: #FFFFFF;
-  
+  color: #ffffff;
+
   p {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
 
