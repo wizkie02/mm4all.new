@@ -1,112 +1,113 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
-import FilterButtons from '../components/FilterButtons';
-import MeditationCard from '../components/MeditationCard';
-import BackgroundEffect from '../components/BackgroundEffect';
-import BreathingExercise from '../components/BreathingExercise';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
+import FilterButtons from "../components/FilterButtons";
+import MeditationCard from "../components/MeditationCard";
+import BackgroundEffect from "../components/BackgroundEffect";
+import BreathingExercise from "../components/BreathingExercise";
 
 // Import images
-import sleepImg1 from '../assets/product-candle.jpg';
-import sleepImg2 from '../assets/product-diffuser.jpg';
-import focusImg1 from '../assets/blog-meditation-beginners.jpg';
-import focusImg2 from '../assets/blog-workplace-mindfulness.jpg';
-import morningImg1 from '../assets/blog-breathing-techniques.jpg';
-import anxietyImg1 from '../assets/blog-evening-rituals.jpg';
+import sleepImg1 from "../assets/product-candle.jpg";
+import sleepImg2 from "../assets/product-diffuser.jpg";
+import focusImg1 from "../assets/blog-meditation-beginners.jpg";
+import focusImg2 from "../assets/blog-workplace-mindfulness.jpg";
+import morningImg1 from "../assets/blog-breathing-techniques.jpg";
+import anxietyImg1 from "../assets/blog-evening-rituals.jpg";
 
 const MeditationLibrary = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [filteredMeditations, setFilteredMeditations] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [showBreathingExercise, setShowBreathingExercise] = useState(false);
-  
+
   // Meditation data
   const meditations = [
     {
       id: 1,
-      title: 'Relaxing Waves for Sleep',
-      description: 'Try this before bed for deep relaxation.',
+      title: "Relaxing Waves for Sleep",
+      description: "Try this before bed for deep relaxation.",
       thumbnail: sleepImg1,
-      category: 'sleep'
+      category: "sleep",
     },
     {
       id: 2,
-      title: 'Focus Your Mind Meditation',
-      description: 'Use this in the workspace to enhance concentration.',
+      title: "Focus Your Mind Meditation",
+      description: "Use this in the workspace to enhance concentration.",
       thumbnail: focusImg1,
-      category: 'focus'
+      category: "focus",
     },
     {
       id: 3,
-      title: 'Morning Start Meditation',
-      description: 'Start your day refreshed and centered.',
+      title: "Morning Start Meditation",
+      description: "Start your day refreshed and centered.",
       thumbnail: morningImg1,
-      category: 'morning'
+      category: "morning",
     },
     {
       id: 4,
-      title: 'Anxiety Relief Guided Session',
-      description: 'Find calm amidst the storm.',
+      title: "Anxiety Relief Guided Session",
+      description: "Find calm amidst the storm.",
       thumbnail: anxietyImg1,
-      category: 'anxiety'
+      category: "anxiety",
     },
     {
       id: 5,
-      title: 'Peaceful Night Meditation',
-      description: 'Drift off to a restful sleep.',
+      title: "Peaceful Night Meditation",
+      description: "Drift off to a restful sleep.",
       thumbnail: sleepImg2,
-      category: 'sleep'
+      category: "sleep",
     },
     {
       id: 6,
-      title: 'Deep Work Focus Track',
-      description: 'Enhance your productivity.',
+      title: "Deep Work Focus Track",
+      description: "Enhance your productivity.",
       thumbnail: focusImg2,
-      category: 'focus'
-    }
+      category: "focus",
+    },
   ];
-  
+
   // Filter categories
   const categories = [
-    { value: 'all', label: 'All' },
-    { value: 'sleep', label: 'Sleep' },
-    { value: 'focus', label: 'Focus' },
-    { value: 'morning', label: 'Morning Start' },
-    { value: 'anxiety', label: 'Anxiety Relief' }
+    { value: "all", label: "All" },
+    { value: "sleep", label: "Sleep" },
+    { value: "focus", label: "Focus" },
+    { value: "morning", label: "Morning Start" },
+    { value: "anxiety", label: "Anxiety Relief" },
   ];
-  
+
   // Filter meditations based on active filter
   useEffect(() => {
     let filtered = [...meditations];
-    
+
     // Apply category filter
-    if (activeFilter !== 'all') {
-      filtered = filtered.filter(item => item.category === activeFilter);
+    if (activeFilter !== "all") {
+      filtered = filtered.filter((item) => item.category === activeFilter);
     }
-    
+
     // Apply search filter
-    if (searchTerm.trim() !== '') {
+    if (searchTerm.trim() !== "") {
       const term = searchTerm.toLowerCase();
       filtered = filtered.filter(
-        item => 
-          item.title.toLowerCase().includes(term) || 
+        (item) =>
+          item.title.toLowerCase().includes(term) ||
           item.description.toLowerCase().includes(term)
       );
     }
-    
+
     setFilteredMeditations(filtered);
   }, [activeFilter, searchTerm]);
 
   const toggleBreathingExercise = () => {
-    setShowBreathingExercise(prev => !prev);
+    setShowBreathingExercise((prev) => !prev);
   };
-  
+
   return (
     <PageContainer>
       <BackgroundEffect />
-      
+
       <PageWrapper>
-        <motion.div          initial={{ opacity: 0, y: -30 }}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
@@ -114,52 +115,79 @@ const MeditationLibrary = () => {
             <PageTitle>Meditation Library</PageTitle>
             <GradientUnderline />
           </PageHeader>
-          
+
           <PageDescription>
-            Find peace, focus, and relaxation with our curated collection of guided meditations.
-            Choose a category below to begin your mindfulness journey.
+            Find peace, focus, and relaxation with our curated collection of
+            guided meditations. Choose a category below to begin your
+            mindfulness journey.
           </PageDescription>
         </motion.div>
-        
+
         <SearchAndFilterContainer>
-          <SearchBox            initial={{ opacity: 0, x: -20 }}
+          <SearchBox
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
             <SearchIcon>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M21 21L16.65 16.65"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </SearchIcon>
-            <input 
-              type="text" 
-              placeholder="Search meditations..." 
+            <input
+              type="text"
+              placeholder="Search meditations..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </SearchBox>
-          
-          <FilterButtons 
+
+          <FilterButtons
             activeFilter={activeFilter}
             setActiveFilter={setActiveFilter}
             categories={categories}
           />
         </SearchAndFilterContainer>
-        
-        <BreathingExerciseToggle          initial={{ opacity: 0, scale: 0.9 }}
+
+        <BreathingExerciseToggle
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
           onClick={toggleBreathingExercise}
-          whileHover={{ y: -5, boxShadow: '0 8px 20px rgba(119, 117, 147, 0.3)' }}
+          whileHover={{
+            y: -5,
+            boxShadow: "0 8px 20px rgba(119, 117, 147, 0.3)",
+          }}
         >
-          {showBreathingExercise ? 'Hide Breathing Exercise' : 'Try Quick Breathing Exercise'}
+          {showBreathingExercise
+            ? "Hide Breathing Exercise"
+            : "Try Quick Breathing Exercise"}
         </BreathingExerciseToggle>
-        
+
         <AnimatePresence>
           {showBreathingExercise && (
-            <motion.div              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
             >
@@ -167,13 +195,14 @@ const MeditationLibrary = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        
+
         <MeditationGrid>
           <AnimatePresence>
             {filteredMeditations.length > 0 ? (
               filteredMeditations.map((meditation) => (
                 <motion.div
-                  key={meditation.id}                  initial={{ opacity: 0, scale: 0.9 }}
+                  key={meditation.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.25 }}
@@ -188,11 +217,41 @@ const MeditationLibrary = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M8 15H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 9H9.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M15 9H15.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M8 15H16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M9 9H9.01"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M15 9H15.01"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
                 <h3>No meditations found</h3>
                 <p>Try adjusting your search or filter criteria</p>
@@ -239,7 +298,11 @@ const PageTitle = styled.h1`
 const GradientUnderline = styled.div`
   height: 4px;
   width: 80px;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--accent-color)
+  );
   margin: 0.8rem auto 0;
   border-radius: 2px;
 `;
@@ -261,7 +324,7 @@ const SearchAndFilterContainer = styled.div`
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: stretch;
@@ -277,12 +340,12 @@ const SearchBox = styled(motion.div)`
   width: 300px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  
+
   &:focus-within {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
   }
-  
+
   input {
     border: none;
     outline: none;
@@ -290,12 +353,12 @@ const SearchBox = styled(motion.div)`
     font-size: 1rem;
     width: 100%;
     color: var(--text-dark);
-    
+
     &::placeholder {
       color: #aaa;
     }
   }
-  
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -308,18 +371,23 @@ const SearchIcon = styled.div`
 `;
 
 const BreathingExerciseToggle = styled(motion.button)`
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--lavender) 0%,
+    var(--lavender-dark) 100%
+  );
   border: none;
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
-  font-size: 1rem;  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   margin: 0 auto 2rem;
   display: block;
   box-shadow: 0 5px 15px rgba(119, 117, 147, 0.2);
   transition: all 0.3s ease;
-  
+
   &:hover {
     filter: brightness(1.1);
   }
@@ -329,12 +397,12 @@ const MeditationGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2.5rem;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
   }
-  
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -350,19 +418,19 @@ const EmptyStateMessage = styled(motion.div)`
   backdrop-filter: blur(5px);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  
+
   svg {
     margin-bottom: 1rem;
     color: var(--text-light);
     opacity: 0.5;
   }
-  
+
   h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-dark);
   }
-  
+
   p {
     font-size: 1rem;
     opacity: 0.7;

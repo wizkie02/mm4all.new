@@ -73,7 +73,7 @@ const Footer = () => {
           </ContactSection>
 
           <SocialSection>
-            <h3>Follow Us</h3>
+            <h3>Connect</h3>
             <SocialIcons>
               <SocialLink
                 href="https://www.youtube.com/@Meditationandmindfulness-4all"

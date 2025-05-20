@@ -148,7 +148,7 @@ const MeditationPlayer = () => {
       <BackgroundEffect />
       
       <BackButton 
-        onClick={() => navigate('/meditations')}
+        onClick={() => navigate('/meditate')}
         whileHover={{ x: -5 }}
         whileTap={{ scale: 0.95 }}
       >
