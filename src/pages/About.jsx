@@ -262,7 +262,7 @@ const About = () => {
             >
               <TeamAvatar>D</TeamAvatar>
               <TeamName>Dirk de Vlaam</TeamName>
-              <TeamRole>Founder & CEO</TeamRole>
+              <TeamRole>Founder</TeamRole>
               <TeamBio>
                 Former financial executive who found mindfulness after burnout.
                 Now passionate about making meditation accessible to everyone,
@@ -279,12 +279,12 @@ const About = () => {
               viewport={{ once: true }}
             >
               <TeamAvatar>L</TeamAvatar>
-              <TeamName>Lam Tran Duc</TeamName>
-              <TeamRole>AI Engineer</TeamRole>
+              <TeamName>Dirk de Vlaam</TeamName>
+              <TeamRole>CEO</TeamRole>
               <TeamBio>
-                AI innovator and meditation teacher with 15 years of experience.
-                Blends ancient mindfulness wisdom from across Asia with
-                cutting-edge technology to enhance your practice.
+                Once a financial executive facing burnout, I discovered
+                mindfulness and transformed my path. Today, I combine strategic
+                insight with a mission to make meditation accessible to all.
               </TeamBio>
             </TeamCard>
 
@@ -296,13 +296,13 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <TeamAvatar>N</TeamAvatar>
-              <TeamName>norman.fts</TeamName>
-              <TeamRole>Developer/Designer</TeamRole>
+              <TeamAvatar>D</TeamAvatar>
+              <TeamName>Dirk de Vlaam</TeamName>
+              <TeamRole>AI Enthusiast</TeamRole>
               <TeamBio>
-                Web developer and designer dedicated to crafting
-                calming digital experiences. Believes intuitive design and clear
-                communication are key to an enriching mindfulness journey.
+                Burnout in the corporate world led me to mindfulness—a turning
+                point that reshaped my life. Now, I&apos;m committed to helping
+                others access the calm and clarity I once searched for.
               </TeamBio>
             </TeamCard>
 
@@ -314,13 +314,14 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <TeamAvatar>D</TeamAvatar>
-              <TeamName>Duong Pham Thuy</TeamName>
-              <TeamRole>Marketing Specialist</TeamRole>
+              <TeamAvatar>V</TeamAvatar>
+              <TeamName>Dirk de Vlaam</TeamName>
+              <TeamRole>Promptalchemist</TeamRole>
               <TeamBio>
-                Marketing strategist with a deep understanding of user
-                engagement. Focused on sharing the transformative power of
-                mindfulness with a wider audience through compelling narratives.
+                I used to thrive in the fast-paced world of finance—until
+                burnout forced me to pause. That pause led me to mindfulness.
+                Now, I&apos;m on a mission to share its benefits with as many people
+                as possible.
               </TeamBio>
             </TeamCard>
           </TeamGrid>
