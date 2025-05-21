@@ -385,7 +385,7 @@ const CategoryButton = styled.button`
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  ;
   
   &::before {
     content: '';
@@ -505,7 +505,7 @@ const AddToCartButton = styled.button`
   padding: 0.8rem;
   border-radius: var(--border-radius);
   font-weight: 600;
-  cursor: pointer;
+  ;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -551,7 +551,7 @@ const CartIcon = styled.div`
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   z-index: 100;
-  cursor: pointer;
+  ;
 `;
 
 const CartCount = styled.div`
@@ -607,7 +607,7 @@ const CloseButton = styled.button`
   border: none;
   font-size: 1.5rem;
   color: var(--text-dark);
-  cursor: pointer;
+  ;
 `;
 
 const EmptyCart = styled.div`
@@ -740,7 +740,7 @@ const CheckoutButton = styled.button`
   border-radius: var(--border-radius);
   font-weight: 600;
   font-size: 1.1rem;
-  cursor: pointer;
+  ;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;

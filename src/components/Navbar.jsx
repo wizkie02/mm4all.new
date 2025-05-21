@@ -288,7 +288,7 @@ const ExternalNavLink = styled.a`
   padding: 0.5rem 0;
   text-decoration: none;
   display: block;
-  cursor: pointer;
+  ;
   transition: var(--transition);
 
   /* You might want to apply the same hover/active styles as NavLink if desired */
@@ -307,7 +307,7 @@ const NavLink = styled(Link)`
   padding: 0.5rem 0;
   text-decoration: none;
   display: block;
-  cursor: pointer;
+  ;
   transition: var(--transition);
 
   /* Add subtle scaling effect when active */

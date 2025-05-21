@@ -95,7 +95,7 @@ const CursorEffect = () => {
         isClicked ? "clicked" : ""
       } ${isHovered ? "hovered" : ""}`}
     >
-      <CursorInnerGlow $isClicked={isClicked} />
+      <CursorInnerGlow $isClicked={isClicked} $isHovered={isHovered} />
       <CursorGlow $isClicked={isClicked} $isHovered={isHovered} />
     </CursorContainer>
   );
@@ -107,12 +107,27 @@ const pulseAnimation = keyframes`
     opacity: 0.5;
   }
   50% {
-    transform: scale(1.08);
-    opacity: 0.58;
+    transform: scale(1.5);
+    opacity: 0.75;
   }
   100% {
     transform: scale(1);
     opacity: 0.5;
+  }
+`;
+
+const reducedPulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
   }
 `;
 
@@ -153,22 +168,18 @@ const CursorGlow = styled.div.attrs({ className: "cursor-glow" })`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--lavender);
+  background-color: ${(props) =>
+    props.$isHovered ? "rgba(255, 255, 255, 0.0)" : "var(--lavender)"};
   border-radius: 50%;
   opacity: 0.55;
   transform-origin: center;
   box-shadow: 0 0 16px 3.6px var(--lavender-light),
     0 0 22.5px 9px var(--lavender-dark); /* Reduced shadow sizes to 90% */
-  animation: ${pulseAnimation} 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: ${(props) =>
+      props.$isHovered ? reducedPulseAnimation : pulseAnimation}
+    3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease;
-
-  /* Apply scale transform based on click/hover state */
-  transform: ${(props) =>
-    props.isClicked
-      ? "scale(0.85)"
-      : props.isHovered
-      ? "scale(1.4)"
-      : "scale(1)"};
+  scale: ${(props) => (props.$isClicked ? "0.5" : "1")};
 `;
 
 const CursorInnerGlow = styled.div`
@@ -177,12 +188,15 @@ const CursorInnerGlow = styled.div`
   left: 25%;
   width: 50%;
   height: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: ${(props) =>
+    props.$isHovered
+      ? "rgba(255, 255, 255, 0.0)"
+      : props.$isClicked
+      ? "var(--lavender)"
+      : "rgba(255, 255, 255, 0.8)"};
   border-radius: 50%;
   opacity: 0.3;
   filter: blur(1.8px); /* Reduced blur from 2px to 1.8px (90%) */
-  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease;
-  transform: ${(props) => (props.isClicked ? "scale(0.5)" : "scale(1)")};
 `;
 
 export default CursorEffect;

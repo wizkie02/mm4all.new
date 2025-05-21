@@ -388,7 +388,7 @@ const BreathingExerciseToggle = styled(motion.button)`
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 500;
-  cursor: pointer;
+  ;
   margin: 0 auto 2rem;
   display: block;
   box-shadow: 0 5px 15px rgba(119, 117, 147, 0.2);

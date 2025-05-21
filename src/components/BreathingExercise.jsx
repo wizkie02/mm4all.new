@@ -206,7 +206,7 @@ const BreathCircle = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  ;
   box-shadow: 0 0 30px rgba(68, 66, 105, 0.5);
   margin-bottom: 5rem;
   z-index: 2;
@@ -262,7 +262,7 @@ const ControlButton = styled.button`
   color: white;
   font-size: 1rem;
   font-weight: 500;
-  cursor: pointer;
+  ;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(68, 66, 105, 0.2);
   position: relative;

@@ -336,7 +336,7 @@ const BackButton = styled(motion.button)`
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  cursor: pointer;
+  ;
   position: absolute;
   top: 2rem;
   left: 4%;
@@ -436,7 +436,7 @@ const ProgressBarContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin-bottom: 1rem;
-  cursor: pointer;
+  ;
   overflow: hidden;
 `;
 
@@ -471,7 +471,7 @@ const ControlButton = styled(motion.button)`
   background: none;
   border: none;
   color: var(--text-dark);
-  cursor: pointer;
+  ;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -492,7 +492,7 @@ const PlayPauseButton = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  ;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 `;
 
@@ -524,7 +524,7 @@ const VolumeSlider = styled.input`
     height: 15px;
     border-radius: 50%;
     background: var(--primary-color);
-    cursor: pointer;
+    ;
   }
   
   &::-moz-range-thumb {
@@ -532,7 +532,7 @@ const VolumeSlider = styled.input`
     height: 15px;
     border-radius: 50%;
     background: var(--primary-color);
-    cursor: pointer;
+    ;
     border: none;
   }
 `;

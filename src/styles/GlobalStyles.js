@@ -173,7 +173,7 @@ const GlobalStyles = createGlobalStyle`  :root {
     }
     
     a, button, input[type="submit"], input[type="button"], .hover-effect {
-      cursor: pointer; /* Enable regular cursor on mobile for interactive elements */
+      ; /* Enable regular cursor on mobile for interactive elements */
     }
   }
     /* Animation Utilities */

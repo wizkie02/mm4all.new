@@ -177,7 +177,7 @@ const PlayButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  ;
   z-index: 10;
   box-shadow: 0 4px 20px rgba(31, 29, 62, 0.3);
 `;

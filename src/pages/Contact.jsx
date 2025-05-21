@@ -403,7 +403,7 @@ const SubmitButton = styled.button`
   border-radius: var(--border-radius);
   font-weight: 600;
   font-size: 1rem;
-  cursor: pointer;
+  ;
   transition: var(--transition);
   
   &:hover {

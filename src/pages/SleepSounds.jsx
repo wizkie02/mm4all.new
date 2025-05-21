@@ -340,7 +340,7 @@ const TabButton = styled.button`
   font-size: 1rem;
   font-weight: 500;
   border-radius: 30px;
-  cursor: pointer;
+  ;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(5px);
@@ -421,7 +421,7 @@ const VolumeSlider = styled.input`
     border-radius: 50%;
     background: white;
     border: 2px solid var(--primary-color);
-    cursor: pointer;
+    ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
@@ -431,7 +431,7 @@ const VolumeSlider = styled.input`
     border-radius: 50%;
     background: white;
     border: 2px solid var(--primary-color);
-    cursor: pointer;
+    ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
@@ -496,7 +496,7 @@ const PlayButton = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  cursor: pointer;
+  ;
   z-index: 2;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 `;

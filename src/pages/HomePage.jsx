@@ -183,7 +183,7 @@ const PrimaryButton = styled(motion.button)`
   text-decoration: none;
   display: inline-block;
   border: none;
-  cursor: pointer;
+  ;
   box-shadow: 0 4px 15px rgba(31, 29, 62, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -233,7 +233,7 @@ const SecondaryButton = styled(motion.button)`
   text-decoration: none;
   display: inline-block;
   border: 2px solid white;
-  cursor: pointer;
+  ;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
