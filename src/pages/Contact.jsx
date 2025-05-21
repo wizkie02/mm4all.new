@@ -208,49 +208,7 @@ const Contact = () => {
             </SubmitButton>
           </ContactForm>
         </ContactWrapper>
-        
-        <FAQSection>
-          <SectionTitle>Frequently Asked Questions</SectionTitle>
-          
-          <FAQGrid>
-            <FAQItem>
-              <FAQQuestion>How do I cancel my subscription?</FAQQuestion>
-              <FAQAnswer>
-                You can cancel your subscription at any time by going to your account settings and clicking on the "Subscription" tab. Follow the cancellation process from there.
-              </FAQAnswer>
-            </FAQItem>
-            
-            <FAQItem>
-              <FAQQuestion>Can I download meditations for offline use?</FAQQuestion>
-              <FAQAnswer>
-                Yes! Premium members can download meditations for offline listening. Look for the download icon next to each meditation.
-              </FAQAnswer>
-            </FAQItem>
-            
-            <FAQItem>
-              <FAQQuestion>Do you offer corporate packages?</FAQQuestion>
-              <FAQAnswer>
-                We do! We offer custom packages for businesses of all sizes. Please contact our corporate team at corporate@mindfulmeditationforall.com for details.
-              </FAQAnswer>
-            </FAQItem>
-            
-            <FAQItem>
-              <FAQQuestion>I'm new to meditation. Where should I start?</FAQQuestion>
-              <FAQAnswer>
-                We recommend our "Beginner's Journey" series, which introduces meditation concepts gradually. You'll find it in the "For Beginners" category.
-              </FAQAnswer>
-            </FAQItem>
-          </FAQGrid>
-          
-          <SupportLink 
-            as={motion.a}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#"
-          >
-            Visit Our Support Center
-          </SupportLink>
-        </FAQSection>
+     
       </ContentSection>
     </ContactContainer>
   );
