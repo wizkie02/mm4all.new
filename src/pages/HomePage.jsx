@@ -101,7 +101,7 @@ const HomePage = () => {
         <CtaContent>
           <CtaTitle>Ready to Transform Your Daily Routine?</CtaTitle>
           <CtaText>
-            Join thousands who have discovered the benefits of regular
+            Join the community which has discovered the benefits of regular
             mindfulness practice.
           </CtaText>{" "}
           <PrimaryButton
