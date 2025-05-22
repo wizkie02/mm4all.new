@@ -55,7 +55,7 @@ const Footer = () => {
         </LeftGroup>
 
         <RightGroup>
-          <ContactSection>
+          {/* <ContactSection>
             <h3>Contact Us</h3>
             <ContactInfo>
               <p>No 2, Alley 337, Dinh Cong Street, Hanoi, Vietnam</p>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <ContactLink href="tel:+6581095789">+65 8109 5789</ContactLink>
               </p>
             </ContactInfo>
-          </ContactSection>
+          </ContactSection> */}
 
           <SocialSection>
             <h3>Connect</h3>

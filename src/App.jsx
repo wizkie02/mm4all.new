@@ -9,7 +9,6 @@ import HomePage from './pages/HomePage';
 import MeditationLibrary from './pages/MeditationLibrary';
 import MeditationPlayer from './pages/MeditationPlayer';
 import SleepSounds from './pages/SleepSounds';
-import Shop from './pages/Shop';
 import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -50,11 +49,6 @@ const AppContent = () => {
               <Route path="/sleep-sounds" element={
                 <PageTransition>
                   <SleepSounds />
-                </PageTransition>
-              } />
-              <Route path="/shop" element={
-                <PageTransition>
-                  <Shop />
                 </PageTransition>
               } />
               <Route path="/resources" element={

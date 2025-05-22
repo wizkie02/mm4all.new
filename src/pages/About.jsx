@@ -249,7 +249,7 @@ const About = () => {
           </ValuesGrid>
         </ValuesSection>
 
-        <TeamSection>
+        {/* <TeamSection>
           <SectionTitle>Our Team</SectionTitle>
           <TeamGrid>
             <TeamCard
@@ -325,7 +325,7 @@ const About = () => {
               </TeamBio>
             </TeamCard>
           </TeamGrid>
-        </TeamSection>
+        </TeamSection> */}
       </ContentSection>
     </AboutContainer>
   );

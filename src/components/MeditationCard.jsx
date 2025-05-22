@@ -2,6 +2,48 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion, scale } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import ReactPlayer from "react-player";
+import Plyr from "plyr-react";
+import "plyr-react/plyr.css";
+
+const MyPlyrVideo = ({ videoID, title }) => {
+  const plyrProps = {
+    source: {
+      type: "video",
+      title: title,
+      sources: [
+        {
+          src: videoID,
+          provider: "youtube",
+        },
+      ],
+    },
+    options: {
+      controls: [
+        "play",
+        "progress",
+        "current-time",
+        "mute",
+        "volume",
+        "settings",
+        "fullscreen",
+      ],
+      loop: {
+        active: true,
+      },
+      youtube: {
+        noCookie: true,
+        rel: 0,
+      },
+    },
+  };
+
+  return (
+    <PlayerWrapper>
+      <Plyr {...plyrProps} />
+    </PlayerWrapper>
+  );
+};
 
 const MeditationCard = ({ meditation }) => {
   const { id, title, description, thumbnail, category, videoID } = meditation;
@@ -11,6 +53,7 @@ const MeditationCard = ({ meditation }) => {
   const handleCardClick = () => {
     navigate(`/meditation/${id}`);
   };
+
   return (
     <CardContainer
       whileHover={{
@@ -27,63 +70,25 @@ const MeditationCard = ({ meditation }) => {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handleCardClick}
     >
       <ThumbnailContainer>
-        {/* <Thumbnail
-          src={thumbnail}
-          alt={`${title} Thumbnail`}
-          as={motion.img}
-          animate={{ scale: isHovered ? 1.1 : 1 }}
-          transition={{ duration: 0.15 }}
-        /> */}
-        <IFrameWrapper
-          as={motion.div}
-          animate={{ scale: isHovered ? 1 : 1 }}
-          transition={{ duration: 0.2 }}
-        >
-          <iframe
+        {/* <IFrameWrapper> */}
+          {/* <iframe
             width={640}
             height={480}
             src={`https://www.youtube.com/embed/${videoID}?rel=0&loop=1`}
             title={title}
             allowFullScreen
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope;"
-          />
-        </IFrameWrapper>
-        {/* <PlayButton
-          as={motion.div}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{
-            opacity: isHovered ? 1 : 0,
-            scale: isHovered ? 1 : 0.8,
-            y: isHovered ? 0 : 10,
-          }}
-          transition={{ duration: 0.15 }}
-        >
-          <motion.svg
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="white"
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.1 }}
-          >
-            <path d="M8 5v14l11-7z" />
-          </motion.svg>
-        </PlayButton>{" "} */}
-        {/* <CategoryTag
-          as={motion.span}
-          animate={{
-            y: isHovered ? -5 : 0,
-            backgroundColor: isHovered
-              ? "var(--lavender-darker)"
-              : "var(--primary-color)",
-          }}
-          transition={{ duration: 0.15 }}
-        >
-          {category}
-        </CategoryTag> */}
+          /> */}
+          {/* <ReactPlayer
+            url={`https://www.youtube.com/embed/${videoID}?rel=0&loop=1`}
+            controls
+            width={640}
+            height={480}
+          /> */}
+          <MyPlyrVideo videoID={videoID} title={"Title"} />
+        {/* </IFrameWrapper> */}
         <GlowEffect
           as={motion.div}
           animate={{ opacity: isHovered ? 0.7 : 0 }}
@@ -109,14 +114,14 @@ const MeditationCard = ({ meditation }) => {
             width: isHovered ? "50%" : "0%",
             opacity: isHovered ? 1 : 0,
           }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.3 }}
         >
           <ClockIcon>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z" />
             </svg>
           </ClockIcon>
-          <span>10-15 min</span>
+          <span>10 mins</span>
         </TimeIndicator>
       </CardContent>
     </CardContainer>
@@ -128,7 +133,7 @@ const IFrameWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   iframe {
     position: absolute;
     top: 0;
@@ -138,6 +143,16 @@ const IFrameWrapper = styled.div`
     border: none;
     border-radius: 15px;
   }
+`;
+
+const PlayerWrapper = styled.div`
+  width: 100%;
+  max-width: 640px; /* or any fixed size */
+  height: 100%
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
 `;
 
 const CardContainer = styled(motion.div)`
@@ -153,33 +168,6 @@ const ThumbnailContainer = styled.div`
   position: relative;
   overflow: hidden;
   height: 200px;
-`;
-
-const Thumbnail = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const PlayButton = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--lavender-darker)
-  );
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  ;
-  z-index: 10;
-  box-shadow: 0 4px 20px rgba(31, 29, 62, 0.3);
 `;
 
 const GlowEffect = styled.div`

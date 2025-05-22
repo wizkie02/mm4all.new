@@ -128,7 +128,7 @@ const Navbar = () => {
           </NavItem>
           <NavItem>
             <ExternalNavLink
-              href="https://shop.mm4all.com/"
+              href="https://shop.mm4all.com/meditation-and-mindfulness/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -288,7 +288,6 @@ const ExternalNavLink = styled.a`
   padding: 0.5rem 0;
   text-decoration: none;
   display: block;
-  ;
   transition: var(--transition);
 
   /* You might want to apply the same hover/active styles as NavLink if desired */
@@ -307,7 +306,6 @@ const NavLink = styled(Link)`
   padding: 0.5rem 0;
   text-decoration: none;
   display: block;
-  ;
   transition: var(--transition);
 
   /* Add subtle scaling effect when active */
