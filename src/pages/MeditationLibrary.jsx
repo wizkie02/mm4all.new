@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import FilterButtons from "../components/FilterButtons";
 import MeditationCard from "../components/MeditationCard";
 import BackgroundEffect from "../components/BackgroundEffect";
 import BreathingExercise from "../components/BreathingExercise";
@@ -24,71 +23,57 @@ const MeditationLibrary = () => {
   const meditations = [
     {
       id: 1,
-      title: "Relaxing Waves for Sleep",
-      description: "Try this before bed for deep relaxation.",
-      thumbnail: sleepImg1,
-      category: "sleep",
-      videoID: 'ou6L1s8BgJg',
+      title: "Meditation at a forest river",
+      description:
+        "Step into a tranquil forest where a gentle river flows and nature embraces you in calm.",
+      videoID: "ou6L1s8BgJg",
+      duration: '10:02',
     },
     {
       id: 2,
-      title: "Focus Your Mind Meditation",
-      description: "Use this in the workspace to enhance concentration.",
-      thumbnail: focusImg1,
-      category: "focus",
-      videoID: 'JNB-EuTpQmE',
+      title: "10 minutes of blissful meditation music",
+      description:
+        "Let yourself unwind with this serene meditation video.",
+      videoID: "JNB-EuTpQmE",
+      duration: '10:29',
     },
     {
       id: 3,
-      title: "Morning Start Meditation",
-      description: "Start your day refreshed and centered.",
-      thumbnail: morningImg1,
-      category: "morning",
-      videoID: 'tnIZbSzUKi4',
+      title: "10 minutes of forest mediation",
+      description:
+        "Escape the noise of everyday life with this calming 10-minute guided meditation.",
+      videoID: "tnIZbSzUKi4",
+      duration: '10:06',
     },
     {
       id: 4,
-      title: "Anxiety Relief Guided Session",
-      description: "Find calm amidst the storm.",
-      thumbnail: anxietyImg1,
-      category: "anxiety",
-      videoID: 'BErd5XfLEVM',
+      title: "Guided Meditation for Stressrelief",
+      description:
+        "17 minutes of guided meditation. Guaranteed to relax you and give you inner peace.",
+      videoID: "BErd5XfLEVM",
+      duration: '17:01',
     },
     {
       id: 5,
-      title: "Peaceful Night Meditation",
-      description: "Drift off to a restful sleep.",
-      thumbnail: sleepImg2,
-      category: "sleep",
-      videoID: 'ou6L1s8BgJg',
+      title: "Blissful 10 minute panflute meditation",
+      description:
+        "Take a moment to pause, breathe, and reconnect with yourself.",
+      videoID: "Oj3RGSzGNMc",
+      duration: '10:10',
     },
     {
       id: 6,
-      title: "Deep Work Focus Track",
-      description: "Enhance your productivity.",
-      thumbnail: focusImg2,
-      category: "focus",
-      videoID: 'BErd5XfLEVM',
+      title: "10 minute relaxing mediation",
+      description:
+        "This calming guided meditation is designed to help you relax, release stress.",
+      videoID: "kXnpLieFkPU",
+      duration: '10:42',
     },
-  ];
-
-  // Filter categories
-  const categories = [
-    { value: "all", label: "All" },
-    { value: "sleep", label: "Sleep" },
-    { value: "focus", label: "Focus" },
-    { value: "morning", label: "Morning Start" },
-    { value: "anxiety", label: "Anxiety Relief" },
   ];
 
   // Filter meditations based on active filter
   useEffect(() => {
     let filtered = [...meditations];
-
-    // Apply category filter
-    if (activeFilter !== "all") {
-      filtered = filtered.filter((item) => item.category === activeFilter);
-    }
 
     // Apply search filter
     if (searchTerm.trim() !== "") {
@@ -124,8 +109,7 @@ const MeditationLibrary = () => {
 
           <PageDescription>
             Find peace, focus, and relaxation with our curated collection of
-            guided meditations. Choose a category below to begin your
-            mindfulness journey.
+            guided meditations.
           </PageDescription>
         </motion.div>
 
@@ -166,12 +150,6 @@ const MeditationLibrary = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </SearchBox>
-
-          <FilterButtons
-            activeFilter={activeFilter}
-            setActiveFilter={setActiveFilter}
-            categories={categories}
-          />
         </SearchAndFilterContainer>
 
         <BreathingExerciseToggle
@@ -388,7 +366,6 @@ const BreathingExerciseToggle = styled(motion.button)`
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 500;
-  ;
   margin: 0 auto 2rem;
   display: block;
   box-shadow: 0 5px 15px rgba(119, 117, 147, 0.2);

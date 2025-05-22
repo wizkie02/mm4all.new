@@ -6,11 +6,10 @@ import ReactPlayer from "react-player";
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 
-const MyPlyrVideo = ({ videoID, title }) => {
+const MyPlyrVideo = ({ videoID }) => {
   const plyrProps = {
     source: {
       type: "video",
-      title: title,
       sources: [
         {
           src: videoID,
@@ -46,7 +45,7 @@ const MyPlyrVideo = ({ videoID, title }) => {
 };
 
 const MeditationCard = ({ meditation }) => {
-  const { id, title, description, thumbnail, category, videoID } = meditation;
+  const { id, title, description, videoID, duration } = meditation;
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
@@ -87,7 +86,7 @@ const MeditationCard = ({ meditation }) => {
             width={640}
             height={480}
           /> */}
-          <MyPlyrVideo videoID={videoID} title={"Title"} />
+          <MyPlyrVideo videoID={videoID} />
         {/* </IFrameWrapper> */}
         <GlowEffect
           as={motion.div}
@@ -121,7 +120,7 @@ const MeditationCard = ({ meditation }) => {
               <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z" />
             </svg>
           </ClockIcon>
-          <span>10 mins</span>
+          <span>{duration}</span>
         </TimeIndicator>
       </CardContent>
     </CardContainer>
@@ -167,7 +166,7 @@ const CardContainer = styled(motion.div)`
 const ThumbnailContainer = styled.div`
   position: relative;
   overflow: hidden;
-  height: 200px;
+  min-height: 200px;
 `;
 
 const GlowEffect = styled.div`
@@ -182,21 +181,6 @@ const GlowEffect = styled.div`
     transparent 70%
   );
   pointer-events: none;
-`;
-
-const CategoryTag = styled.span`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: capitalize;
-  box-shadow: 0 4px 10px rgba(160, 155, 231, 0.2);
-  z-index: 10;
 `;
 
 const CardContent = styled.div`
