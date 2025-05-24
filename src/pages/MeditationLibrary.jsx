@@ -317,6 +317,7 @@ const SearchAndFilterContainer = styled.div`
 
 const SearchBox = styled(motion.div)`
   display: flex;
+  .hover-effect
   align-items: center;
   background-color: white;
   border-radius: 30px;

@@ -1,132 +1,33 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
-import BackgroundEffect from '../components/BackgroundEffect';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom"; // Added in previous step, ensure it's here
+import { motion, AnimatePresence } from "framer-motion";
+import BackgroundEffect from "../components/BackgroundEffect";
 
-// Import blog images
-import blogImg1 from '../assets/blog-meditation-beginners.jpg';
-import blogImg2 from '../assets/blog-breathing-techniques.jpg';
-import blogImg3 from '../assets/blog-evening-rituals.jpg';
-import blogImg4 from '../assets/blog-workplace-mindfulness.jpg';
+import { resources } from "../data/resourcesData"; // Import centralized resources
 
 const Resources = () => {
-  const [activeTab, setActiveTab] = useState('blogs');
-  const [searchQuery, setSearchQuery] = useState('');
-  
+  const [activeTab, setActiveTab] = useState("blogs");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const tabs = [
-    { id: 'blogs', label: 'Blog Articles' },
-    { id: 'guides', label: 'Free Guides' },
-    { id: 'videos', label: 'Videos' },
-    { id: 'research', label: 'Research' }
+    { id: "blogs", label: "Blog Articles" },
+    { id: "guides", label: "Free Guides" },
+    { id: "research", label: "Research" },
   ];
-  
-  const resources = {
-    'blogs': [
-      {
-        id: 'blog-1',
-        title: 'Meditation for Beginners: How to Start Your Practice',
-        category: 'Beginners',
-        date: 'May 10, 2025',
-        image: blogImg1,
-        excerpt: 'Starting a meditation practice can feel overwhelming. In this guide, we break down the basics into simple, manageable steps...'
-      },
-      {
-        id: 'blog-2',
-        title: '5 Breathing Techniques to Calm Your Mind',
-        category: 'Techniques',
-        date: 'May 5, 2025',
-        image: blogImg2,
-        excerpt: 'Your breath is a powerful tool for managing stress and anxiety. Learn five effective breathing techniques that you can use anywhere...'
-      },
-      {
-        id: 'blog-3',
-        title: 'Creating an Evening Ritual for Better Sleep',
-        category: 'Sleep',
-        date: 'April 28, 2025',
-        image: blogImg3,
-        excerpt: 'The way you spend your evening has a profound impact on your sleep quality. Discover how to create a calming ritual that prepares your body and mind...'
-      },
-      {
-        id: 'blog-4',
-        title: 'Mindfulness at Work: Staying Focused in a Busy Environment',
-        category: 'Workplace',
-        date: 'April 15, 2025',
-        image: blogImg4,
-        excerpt: 'Maintaining focus and calm amid workplace distractions is challenging. Learn practical mindfulness techniques designed for busy professionals...'
-      }
-    ],
-    'guides': [
-      {
-        id: 'guide-1',
-        title: '7-Day Mindfulness Challenge',
-        category: 'Practice',
-        image: blogImg3,
-        excerpt: 'A step-by-step guide to building a consistent mindfulness practice in just one week.'
-      },
-      {
-        id: 'guide-2',
-        title: 'The Complete Guide to Meditation Postures',
-        category: 'Techniques',
-        image: blogImg1,
-        excerpt: 'Find the most comfortable and effective position for your meditation practice with this illustrated guide.'
-      },
-      {
-        id: 'guide-3',
-        title: 'Mindful Eating Handbook',
-        category: 'Wellness',
-        image: blogImg2,
-        excerpt: 'Transform your relationship with food by bringing mindfulness to your meals.'
-      }
-    ],
-    'videos': [
-      {
-        id: 'video-1',
-        title: 'Guided Meditation for Anxiety Relief',
-        category: 'Meditation',
-        duration: '15:24',
-        image: blogImg2,
-        excerpt: 'A gentle guide to calming anxiety through mindfulness and visualization.'
-      },
-      {
-        id: 'video-2',
-        title: 'Morning Stretches for Mindful Movement',
-        category: 'Movement',
-        duration: '10:12',
-        image: blogImg4,
-        excerpt: 'Start your day with intention through these gentle, mindful stretches.'
-      }
-    ],
-    'research': [
-      {
-        id: 'research-1',
-        title: 'The Science Behind Mindfulness Meditation',
-        category: 'Neuroscience',
-        date: 'March 2025',
-        image: blogImg1,
-        excerpt: 'A summary of recent scientific findings on how meditation affects the brain and nervous system.'
-      },
-      {
-        id: 'research-2',
-        title: 'Mindfulness-Based Stress Reduction: A Review of the Evidence',
-        category: 'Clinical Research',
-        date: 'February 2025',
-        image: blogImg3,
-        excerpt: 'An overview of studies demonstrating the effectiveness of MBSR for various conditions.'
-      }
-    ]
-  };
-  
+
   // Filter resources based on search query
-  const filteredResources = resources[activeTab].filter(resource => 
-    resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    resource.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    resource.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredResources = resources[activeTab].filter(
+    (resource) =>
+      resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      resource.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      resource.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
   return (
     <ResourcesContainer>
       <BackgroundEffect />
-      
+
       <PageHeader>
         <HeaderContent>
           <motion.h1
@@ -141,34 +42,35 @@ const Resources = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Explore our collection of articles, guides, videos, and research about mindfulness and meditation
+            Explore our collection of articles, guides, and research
+            about mindfulness and meditation
           </motion.p>
         </HeaderContent>
       </PageHeader>
-      
+
       <ContentSection>
         <SearchBox>
           <SearchIcon>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
           </SearchIcon>
-          <SearchInput 
-            type="text" 
-            placeholder="Search resources..." 
+          <SearchInput
+            type="text"
+            placeholder="Search resources..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </SearchBox>
-        
+
         <TabsContainer>
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <TabButton
               key={tab.id}
               active={activeTab === tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
-                setSearchQuery('');
+                setSearchQuery("");
               }}
               as={motion.button}
               whileHover={{ y: -2 }}
@@ -181,7 +83,7 @@ const Resources = () => {
             </TabButton>
           ))}
         </TabsContainer>
-        
+
         <AnimatePresence mode="wait">
           <ResourceGrid
             key={activeTab}
@@ -193,65 +95,84 @@ const Resources = () => {
           >
             {filteredResources.length > 0 ? (
               filteredResources.map((resource, index) => (
-                <ResourceCard
+                <Link
                   key={resource.id}
-                  as={motion.div}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
+                  to={`/resources/${activeTab}/${resource.id}`}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    display: "block",
+                    height: "100%",
+                  }}
                 >
-                  <ResourceImage>
-                    <img src={resource.image} alt={resource.title} />
-                    {activeTab === 'videos' && (
-                      <Duration>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                          <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  <ResourceCard
+                    // The 'key' prop is now on the parent Link component.
+                    // 'as={motion.div}' and motion props remain to animate the card itself.
+                    as={motion.div}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    whileHover={{
+                      y: -5,
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <ResourceImage>
+                      <img src={resource.image} alt={resource.title} />
+                    </ResourceImage>
+                    <ResourceContent>
+                      <ResourceCategory>{resource.category}</ResourceCategory>
+                      <ResourceTitle>{resource.title}</ResourceTitle>
+                      {(activeTab === "blogs" || activeTab === "research") && (
+                        <ResourceDate>{resource.date}</ResourceDate>
+                      )}
+                      <ResourceExcerpt>{resource.excerpt}</ResourceExcerpt>
+                      <ReadMoreLink
+                        as={motion.div} // Changed from motion.a
+                        whileHover={{ x: 5 }}
+                        // href="#" removed
+                      >
+                        {/* Consider changing "Connect" to "View Details" or "Learn More" */}
+                        View Details
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                         </svg>
-                        {resource.duration}
-                      </Duration>
-                    )}
-                  </ResourceImage>
-                  <ResourceContent>
-                    <ResourceCategory>{resource.category}</ResourceCategory>
-                    <ResourceTitle>{resource.title}</ResourceTitle>
-                    {(activeTab === 'blogs' || activeTab === 'research') && (
-                      <ResourceDate>{resource.date}</ResourceDate>
-                    )}
-                    <ResourceExcerpt>{resource.excerpt}</ResourceExcerpt>
-                    <ReadMoreLink
-                      as={motion.a}
-                      whileHover={{ x: 5 }}
-                      href="#"
-                    >
-                      Connect
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                      </svg>
-                    </ReadMoreLink>
-                  </ResourceContent>
-                </ResourceCard>
+                      </ReadMoreLink>
+                    </ResourceContent>
+                  </ResourceCard>
+                </Link>
               ))
             ) : (
               <NoResults>
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  opacity="0.3"
+                >
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                 </svg>
                 <p>No resources match your search criteria</p>
-                <ResetButton onClick={() => setSearchQuery('')}>
+                <ResetButton onClick={() => setSearchQuery("")}>
                   Clear Search
                 </ResetButton>
               </NoResults>
             )}
           </ResourceGrid>
         </AnimatePresence>
-        
+
         <SubscribeSection>
           <SubscribeContent>
             <SubscribeTitle>Stay Updated with New Resources</SubscribeTitle>
             <SubscribeText>
-              Join our mailing list to receive the latest articles, guides, and mindfulness tips directly in your inbox.
+              Join our mailing list to receive the latest articles, guides, and
+              mindfulness tips directly in your inbox.
             </SubscribeText>
             <SubscribeForm>
               <SubscribeInput type="email" placeholder="Your email address" />
@@ -288,12 +209,12 @@ const HeaderContent = styled.div`
   margin: 0 auto;
   text-align: center;
   padding: 0 1rem;
-  
+
   h1 {
     color: white;
     margin-bottom: 1rem;
   }
-  
+
   p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.2rem;
@@ -312,13 +233,14 @@ const SearchBox = styled.div`
   position: relative;
   max-width: 600px;
   margin: 0 auto 2rem;
+  
 `;
 
 const SearchIcon = styled.div`
   position: absolute;
   left: 1rem;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-35%);
   color: var(--text-light);
 `;
 
@@ -329,7 +251,7 @@ const SearchInput = styled.input`
   border-radius: 30px;
   font-size: 1rem;
   box-shadow: var(--shadow);
-  
+
   &:focus {
     outline: none;
     border-color: var(--primary-color);
@@ -347,17 +269,19 @@ const TabsContainer = styled.div`
 `;
 
 const TabButton = styled.button`
-  background: ${props => props.active ? 'var(--primary-color)' : 'transparent'};
-  color: ${props => props.active ? 'white' : 'var(--text-dark)'};
+  background: ${(props) =>
+    props.active ? "var(--primary-color)" : "transparent"};
+  color: ${(props) => (props.active ? "white" : "var(--text-dark)")};
   border: 1px solid var(--primary-color);
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
   font-size: 1rem;
   position: relative;
   overflow: hidden;
-  
+
   &:hover {
-    background: ${props => props.active ? 'var(--primary-color)' : 'rgba(122, 107, 172, 0.1)'};
+    background: ${(props) =>
+      props.active ? "var(--primary-color)" : "rgba(122, 107, 172, 0.1)"};
   }
 `;
 
@@ -376,7 +300,7 @@ const ResourceGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   gap: 2rem;
-  
+
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
@@ -397,14 +321,14 @@ const ResourceImage = styled.div`
   height: 200px;
   overflow: hidden;
   position: relative;
-  
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
-  
+
   ${ResourceCard}:hover & img {
     transform: scale(1.05);
   }
@@ -459,14 +383,14 @@ const ResourceExcerpt = styled.p`
   flex: 1;
 `;
 
-const ReadMoreLink = styled.a`
+const ReadMoreLink = styled.div`
   color: var(--primary-color);
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-top: auto;
-  
+
   &:hover {
     color: var(--accent-color);
   }
@@ -513,7 +437,7 @@ const SubscribeText = styled.p`
 
 const SubscribeForm = styled.form`
   display: flex;
-  
+
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 1rem;
@@ -527,11 +451,11 @@ const SubscribeInput = styled.input`
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   font-size: 1rem;
-  
+
   @media (max-width: 600px) {
     border-radius: var(--border-radius);
   }
-  
+
   &:focus {
     outline: none;
     border-color: var(--primary-color);
@@ -546,7 +470,7 @@ const SubscribeButton = styled.button`
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   font-weight: 600;
-  
+
   @media (max-width: 600px) {
     border-radius: var(--border-radius);
   }

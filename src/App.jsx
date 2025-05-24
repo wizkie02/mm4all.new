@@ -1,26 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
-import GlobalStyles from './styles/GlobalStyles';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import MeditationLibrary from './pages/MeditationLibrary';
-import MeditationPlayer from './pages/MeditationPlayer';
-import SleepSounds from './pages/SleepSounds';
-import Resources from './pages/Resources';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import CursorEffect from './components/CursorEffect';
-import ScrollToTop from './components/ScrollToTop';
-import PageTransition from './components/PageTransition';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import styled from "styled-components";
+import { AnimatePresence } from "framer-motion";
+import GlobalStyles from "./styles/GlobalStyles";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import MeditationLibrary from "./pages/MeditationLibrary";
+import MeditationPlayer from "./pages/MeditationPlayer";
+import SleepSounds from "./pages/SleepSounds";
+import Resources from "./pages/Resources";
+import ResourceDetailPage from "./pages/ResourceDetailPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import CursorEffect from "./components/CursorEffect";
+import ScrollToTop from "./components/ScrollToTop";
+import PageTransition from "./components/PageTransition";
 
 // AnimatePresence wrapper needs to be inside the Router context
 // but we also need access to location, so we create a separate component
 const AppContent = () => {
   const location = useLocation();
-  
+
   return (
     <>
       <GlobalStyles />
@@ -31,41 +37,70 @@ const AppContent = () => {
         <MainContent>
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={
-                <PageTransition>
-                  <HomePage />
-                </PageTransition>
-              } />
-              <Route path="/meditate" element={
-                <PageTransition>
-                  <MeditationLibrary />
-                </PageTransition>
-              } />
-              <Route path="/meditation/:id" element={
-                <PageTransition>
-                  <MeditationPlayer />
-                </PageTransition>
-              } />
-              <Route path="/sleep-sounds" element={
-                <PageTransition>
-                  <SleepSounds />
-                </PageTransition>
-              } />
-              <Route path="/resources" element={
-                <PageTransition>
-                  <Resources />
-                </PageTransition>
-              } />
-              <Route path="/about" element={
-                <PageTransition>
-                  <About />
-                </PageTransition>
-              } />
-              <Route path="/contact" element={
-                <PageTransition>
-                  <Contact />
-                </PageTransition>
-              } />
+              <Route
+                path="/"
+                element={
+                  <PageTransition>
+                    <HomePage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/meditate"
+                element={
+                  <PageTransition>
+                    <MeditationLibrary />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/meditation/:id"
+                element={
+                  <PageTransition>
+                    <MeditationPlayer />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/sleep-sounds"
+                element={
+                  <PageTransition>
+                    <SleepSounds />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/resources"
+                element={
+                  <PageTransition>
+                    <Resources />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/resources/:category/:id"
+                element={
+                  <PageTransition>
+                    <ResourceDetailPage />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <PageTransition>
+                    <About />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <PageTransition>
+                    <Contact />
+                  </PageTransition>
+                }
+              />
             </Routes>
           </AnimatePresence>
         </MainContent>
@@ -104,4 +139,4 @@ const PagePlaceholder = styled.div`
   background-color: var(--background-light);
 `;
 
-export default App
+export default App;
