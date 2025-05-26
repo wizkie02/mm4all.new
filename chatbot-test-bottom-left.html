@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatSimple Widget Test - Bottom Left</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #a09be7, #7a6bac);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .test-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .status {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* ChatSimple AI Chatbot Widget Styling - Bottom Left Position */
+        co-pilot {
+            --chatbot-primary-color: #a09be7 !important;
+            --chatbot-accent-color: #7a6bac !important;
+            --chatbot-border-radius: 25px !important;
+            z-index: 10001 !important;
+            position: fixed !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        co-pilot iframe,
+        co-pilot div,
+        co-pilot * {
+            border-radius: 25px !important;
+            box-shadow: 0 8px 32px rgba(160, 155, 231, 0.4) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            z-index: 10001 !important;
+        }
+        
+        co-pilot:hover iframe,
+        co-pilot:hover div {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 40px rgba(160, 155, 231, 0.6) !important;
+        }
+        
+        co-pilot[user-id="9591924a-a39b-435f-b364-b6782c34071d"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: fixed !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            z-index: 10001 !important;
+            width: auto !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-content">
+        <h1>🧘‍♀️ ChatSimple Widget Test</h1>
+        <div class="status">
+            <h2>Widget Status Monitor</h2>
+            <p id="widget-status">Loading...</p>
+            <p id="script-status">Script loading...</p>
+            <p id="element-status">Element check...</p>
+        </div>
+        <p>The chatbot should appear in the <strong>bottom-left corner</strong> of this page.</p>
+        <p>If you can see it, the integration is working correctly!</p>
+    </div>
+
+    <!-- ChatSimple AI Chatbot Widget -->
+    <co-pilot
+        user-id="9591924a-a39b-435f-b364-b6782c34071d"
+        chatbot-id="4ade39c8-276e-4092-be9a-18071d34f2dd"
+        platform-id="5ccb2f2d-4e00-42fb-806a-36a94fc98a22"
+        is-local="false">
+    </co-pilot>
+    <script src="https://cdn.chatsimple.ai/ai-loader.js" defer></script>
+
+    <!-- Debug Script -->
+    <script>
+        function updateStatus() {
+            const widgetElement = document.querySelector('co-pilot');
+            const iframe = document.querySelector('co-pilot iframe');
+            const script = document.querySelector('script[src*="ai-loader"]');
+            
+            document.getElementById('widget-status').innerHTML = 
+                widgetElement ? '✅ Co-pilot element found' : '❌ Co-pilot element not found';
+            
+            document.getElementById('script-status').innerHTML = 
+                script ? '✅ AI loader script loaded' : '❌ AI loader script not found';
+            
+            document.getElementById('element-status').innerHTML = 
+                iframe ? '✅ Chatbot iframe found' : '⏳ Waiting for chatbot iframe...';
+        }
+        
+        // Check status every 2 seconds
+        setInterval(updateStatus, 2000);
+        updateStatus();
+        
+        // Log important events
+        console.log('ChatSimple Test Page Loaded');
+        console.log('User ID: 9591924a-a39b-435f-b364-b6782c34071d');
+        console.log('Chatbot ID: 4ade39c8-276e-4092-be9a-18071d34f2dd');
+        console.log('Platform ID: 5ccb2f2d-4e00-42fb-806a-36a94fc98a22');
+        
+        // Monitor for chatbot initialization
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const coPilot = document.querySelector('co-pilot');
+                if (coPilot) {
+                    console.log('Co-pilot element found:', coPilot);
+                    console.log('Co-pilot attributes:', {
+                        'user-id': coPilot.getAttribute('user-id'),
+                        'chatbot-id': coPilot.getAttribute('chatbot-id'),
+                        'platform-id': coPilot.getAttribute('platform-id'),
+                        'is-local': coPilot.getAttribute('is-local')
+                    });
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

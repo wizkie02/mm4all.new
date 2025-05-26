@@ -66,3 +66,80 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ChatSimple AI Chatbot Widget Styling - Bottom Left Position */
+co-pilot {
+  --chatbot-primary-color: #a09be7 !important; /* Match website's theme color */
+  --chatbot-accent-color: #7a6bac !important; /* Darker lavender */
+  --chatbot-border-radius: 25px !important; /* Rounded corners for meditation feel */
+  z-index: 10001 !important; /* Ensure it appears above custom cursor */
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important; /* Bottom-left positioning */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure chatbot button has meditation-friendly styling */
+co-pilot iframe,
+co-pilot div,
+co-pilot * {
+  border-radius: 25px !important;
+  box-shadow: 0 8px 32px rgba(160, 155, 231, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  z-index: 10001 !important;
+}
+
+/* Meditation-themed hover effect for chatbot */
+co-pilot:hover iframe,
+co-pilot:hover div {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 40px rgba(160, 155, 231, 0.6) !important;
+}
+
+/* Ensure chatbot doesn't interfere with cursor effects */
+co-pilot,
+co-pilot * {
+  pointer-events: auto !important;
+}
+
+/* Force visibility for chatbot elements with new user-id */
+co-pilot[user-id="9591924a-a39b-435f-b364-b6782c34071d"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important; /* Bottom-left positioning */
+  z-index: 10001 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Additional styling for better visibility */
+co-pilot button,
+co-pilot .chat-bubble {
+  background-color: #a09be7 !important;
+  border: 2px solid #7a6bac !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 60px !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  co-pilot {
+    bottom: 15px !important;
+    left: 15px !important;
+  }
+  
+  co-pilot[user-id="9591924a-a39b-435f-b364-b6782c34071d"] {
+    bottom: 15px !important;
+    left: 15px !important;
+  }
+}

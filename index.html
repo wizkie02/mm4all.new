@@ -35,6 +35,105 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+    <!-- ChatSimple AI Chatbot Widget - Bottom Right Corner -->
+  <chat-bot 
+    platform_id="6c7614cb-8e7c-41bd-ac43-4e7c62a0f569" 
+    user_id="9591924a-a39b-435f-b364-b6782c34071d" 
+    chatbot_id="4ade39c8-276e-4092-be9a-18071d34f2dd">
+    <a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">chatsimple</a>
+  </chat-bot>  <script src="https://cdn.chatsimple.ai/chat-bot-loader.js" defer></script>
+  <!-- Positioning styles for bottom-right corner -->
+  <style>
+    chat-bot {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 10001 !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+    
+    /* Ensure cursor effects work over chatbot */
+    chat-bot * {
+      pointer-events: auto !important;
+    }
+    
+    /* Allow custom cursor to show over chatbot iframe */
+    chat-bot iframe {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+    
+    /* Ensure chatbot doesn't interfere with custom cursor */
+    body {
+      cursor: none !important;
+    }
+    
+    /* Custom cursor should appear over everything including chatbot */
+    .cursor, 
+    div[class*="CursorContainer"],
+    [class*="cursor-glow"],
+    [class*="CursorGlow"] {
+      z-index: 99999 !important;
+      pointer-events: none !important;
+    }
+    
+    /* Ensure cursor effect works everywhere */
+    * {
+      cursor: none !important;
+    }
+    
+    /* Override for interactive elements to show they are clickable */
+    a, button, input, textarea, select, .hover-effect {
+      cursor: none !important;
+    }
+  </style>
+  
+  <!-- Backup Method - Force chatbot initialization -->
+  <script>
+    // Backup method if first method doesn't work
+    setTimeout(function() {
+      if (!document.querySelector('chat-bot iframe')) {
+        console.log('Attempting backup chatbot initialization...');
+        
+        // Remove existing chat-bot if any
+        const existing = document.querySelector('chat-bot');
+        if (existing) existing.remove();
+        
+        // Create new chat-bot element
+        const chatBot = document.createElement('chat-bot');
+        chatBot.setAttribute('platform_id', '6c7614cb-8e7c-41bd-ac43-4e7c62a0f569');
+        chatBot.setAttribute('user_id', '9591924a-a39b-435f-b364-b6782c34071d');
+        chatBot.setAttribute('chatbot_id', '4ade39c8-276e-4092-be9a-18071d34f2dd');
+        
+        // Add the chatsimple link
+        const link = document.createElement('a');
+        link.href = 'https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral';
+        link.textContent = 'chatsimple';
+        chatBot.appendChild(link);
+        
+        // Force positioning to bottom-right
+        chatBot.style.cssText = `
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          z-index: 10001 !important;
+          display: block !important;
+        `;
+        
+        document.body.appendChild(chatBot);
+        
+        // Reload script if needed
+        const existingScript = document.querySelector('script[src*="chat-bot-loader"]');
+        if (!existingScript) {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.chatsimple.ai/chat-bot-loader.js';
+          script.async = true;
+          document.head.appendChild(script);
+        }
+      }
+    }, 3000);
+  </script>
 </body>
 
 </html>

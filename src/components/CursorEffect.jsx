@@ -87,11 +87,10 @@ const CursorEffect = () => {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [isVisible]);
-  return (
+  }, [isVisible]);  return (
     <CursorContainer
       ref={cursorRef}
-      className={`${isVisible ? "visible" : "hidden"} ${
+      className={`cursor custom-cursor ${isVisible ? "visible" : "hidden"} ${
         isClicked ? "clicked" : ""
       } ${isHovered ? "hovered" : ""}`}
     >
@@ -138,7 +137,7 @@ const CursorContainer = styled.div`
   width: 32px; /* Reduced from 35px to 90% */
   height: 32px; /* Reduced from 35px to 90% */
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999; /* Increased to ensure it appears above chatbot */
   transition: opacity 0.3s ease;
   will-change: transform;
   opacity: 0;
