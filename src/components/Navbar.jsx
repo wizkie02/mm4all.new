@@ -128,7 +128,7 @@ const Navbar = () => {
           </NavItem>
           <NavItem>
             <ExternalNavLink
-              href="https://shop.mm4all.com/meditation-and-mindfulness/shop"
+              href="https://shop.mm4all.com/meditation-and-mindfulness/"
               target="_blank"
               rel="noopener noreferrer"
             >
