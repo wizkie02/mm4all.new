@@ -42,7 +42,7 @@ const About = () => {
           <TextContent>
             <SectionTitle>Our Story</SectionTitle>
             <p>
-              Founded in 2025, Meditation 4 All began with a simple yet powerful
+              Founded in 2025, Meditation & Mindfulness 4 All began with a simple yet powerful
               idea: In a fast-paced world, everyone deserves a moment of
               stillness.
             </p>
@@ -91,7 +91,7 @@ const About = () => {
           <TextContent>
             <SectionTitle>Our Mission</SectionTitle>
             <p>
-              At Meditation 4 All, we believe that mindfulness should be a part
+              At Meditation & Mindfulness 4 All, we believe that mindfulness should be a part
               of everyday life. Our mission is to remove the barriers that
               prevent people from experiencing the benefits of meditation.
             </p>
