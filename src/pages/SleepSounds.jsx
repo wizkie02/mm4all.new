@@ -6,6 +6,15 @@ import AudioVisualizer from '../components/AudioVisualizer';
 import sleepImg1 from '../assets/sleepImg1.png';
 import sleepImg2 from '../assets/sleepImg2.png';
 import morningImg1 from '../assets/morningImg1.png';
+import waveImg from '../assets/waveImg.jpg';
+import rainImg from '../assets/rainImg.jpg';
+import whiteImg from '../assets/whiteImg.jpg';
+import bowlImg from '../assets/bowlImg.jpg';
+import cafeImg from '../assets/cafeImg.jpg';
+import pianoImg from '../assets/pianoImg.jpg';
+
+
+
 
 const SleepSounds = () => {
   const [playing, setPlaying] = useState(null);
@@ -19,21 +28,21 @@ const SleepSounds = () => {
         id: 'sleep-1',
         title: 'Ocean Waves',
         description: 'Gentle waves crashing on the shore',
-        thumbnail: sleepImg1,
+        thumbnail: waveImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' // Replace with actual audio
       },
       {
         id: 'sleep-2',
         title: 'Rainfall',
         description: 'Soft rain on a window',
-        thumbnail: sleepImg2,
+        thumbnail: rainImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' // Replace with actual audio
       },
       {
         id: 'sleep-3',
         title: 'White Noise',
         description: 'Consistent sound frequency',
-        thumbnail: morningImg1,
+        thumbnail: whiteImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' // Replace with actual audio
       }
     ],
@@ -49,7 +58,7 @@ const SleepSounds = () => {
         id: 'ambience-2',
         title: 'Cafe Ambience',
         description: 'Gentle murmurs of a coffee shop',
-        thumbnail: sleepImg2,
+        thumbnail: cafeImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' // Replace with actual audio
       }
     ],
@@ -58,14 +67,14 @@ const SleepSounds = () => {
         id: 'relax-1',
         title: 'Gentle Piano',
         description: 'Soft piano melodies',
-        thumbnail: sleepImg1,
+        thumbnail: pianoImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' // Replace with actual audio
       },
       {
         id: 'relax-2',
         title: 'Meditation Bowls',
         description: 'Tibetan singing bowls',
-        thumbnail: sleepImg2,
+        thumbnail: bowlImg,
         audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' // Replace with actual audio
       }
     ]
@@ -220,6 +229,7 @@ const SleepSounds = () => {
                     as={motion.button}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    style={{top: "calc(50% - 30px)", left: "calc(50% - 30px)"}}
                   >
                     {playing === sound.id ? (
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -410,14 +420,14 @@ const VolumeSlider = styled.input`
   flex: 1;
   height: 6px;
   border-radius: 3px;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  background: linear-gradient(to right, var(--tertiary-color), var(--primary-color));
   outline: none;
   
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: white;
     border: 2px solid var(--primary-color);
@@ -426,8 +436,8 @@ const VolumeSlider = styled.input`
   }
   
   &::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: white;
     border: 2px solid var(--primary-color);
@@ -482,15 +492,12 @@ const SoundThumbnail = styled.div`
 
 const PlayButton = styled.button`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background: ${props => props.isPlaying 
-    ? 'var(--accent-color)' 
-    : 'linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%)'};
+    ? 'var(--primary-color)' 
+    : 'linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 100%)'};
   color: white;
   display: flex;
   align-items: center;
@@ -513,7 +520,7 @@ const SoundWaves = styled.div`
   pointer-events: none;
 `;
 
-const Wave = styled(motion.div).attrs({
+const Wave = styled(motion.div).attrs(props => ({
   animate: {
     scale: [1, 1.5, 1],
     opacity: [0.3, 0.7, 0.3],
@@ -521,15 +528,16 @@ const Wave = styled(motion.div).attrs({
   transition: {
     duration: 2,
     repeat: Infinity,
-    delay: props => props.delay,
+    delay: props.delay, // Access delay from component props
     ease: "easeInOut"
   }
-})`
+}))`
   position: absolute;
+  
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid #A09BE7;
   opacity: 0.3;
 `;
 
