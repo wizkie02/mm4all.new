@@ -145,7 +145,6 @@ const MeditationPlayer = () => {
   
   return (
     <PageContainer>
-      <BackgroundEffect />
       
       <BackButton 
         onClick={() => navigate('/meditate')}

@@ -234,6 +234,25 @@ const NavContainer = styled.nav`
   z-index: 100;
   padding: 1rem 0;
   backdrop-filter: blur(5px);
+  
+  /* Soft blur gradient at bottom */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 243, 255, 0.3) 0%,
+      rgba(245, 243, 255, 0.15) 50%,
+      rgba(245, 243, 255, 0) 100%
+    );
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    z-index: -1;
+  }
 `;
 
 const NavWrapper = styled.div`

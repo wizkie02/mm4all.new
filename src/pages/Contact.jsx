@@ -57,8 +57,6 @@ const Contact = () => {
 
   return (
     <ContactContainer>
-      <BackgroundEffect />
-
       <PageHeader>
         <HeaderContent>
           <motion.h1

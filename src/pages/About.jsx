@@ -10,8 +10,6 @@ import purposeImg from "../assets/about-purpose.jpg";
 const About = () => {
   return (
     <AboutContainer>
-      <BackgroundEffect />
-
       <PageHeader>
         <HeaderContent>
           <motion.h1

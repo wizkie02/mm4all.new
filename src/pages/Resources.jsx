@@ -26,7 +26,6 @@ const Resources = () => {
 
   return (
     <ResourcesContainer>
-      <BackgroundEffect />
 
       <PageHeader>
         <HeaderContent>

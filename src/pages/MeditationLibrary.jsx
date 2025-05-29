@@ -94,7 +94,6 @@ const MeditationLibrary = () => {
 
   return (
     <PageContainer>
-      <BackgroundEffect />
 
       <PageWrapper>
         <motion.div

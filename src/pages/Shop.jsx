@@ -129,7 +129,6 @@ const Shop = () => {
   
   return (
     <ShopContainer>
-      <BackgroundEffect />
       
       <PageHeader>
         <HeaderContent>
