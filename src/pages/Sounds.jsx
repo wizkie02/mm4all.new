@@ -69,25 +69,9 @@ const Sounds = () => {
   const [timerActive, setTimerActive] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(0);
   const activeTimerId = useRef(null);
-  const countdownInterval = useRef(null);  // Initialize Audio elements
+  const countdownInterval = useRef(null);  // Cleanup function only
   useEffect(() => {
-    soundsData.forEach(sound => {
-      // Create single audio instance with seamless looping
-      if (!audioRefs.current[sound.id]) {
-        const audio = new Audio(sound.audioSrc);
-        
-        // Configure audio for seamless looping
-        audio.loop = true; // Enable native looping for seamless playback
-        audio.volume = 0;
-        audio.preload = 'auto';
-        
-        audio.addEventListener('error', (e) => {
-          console.error(`Audio loading error for ${sound.id}:`, e);
-        });
-        
-        audioRefs.current[sound.id] = audio;
-      }
-    });    return () => {
+    return () => {
       // Clean up audio
       Object.values(audioRefs.current).forEach(audio => {
         audio.pause();
@@ -98,9 +82,31 @@ const Sounds = () => {
       if (activeTimerId.current) clearTimeout(activeTimerId.current);
       if (countdownInterval.current) clearInterval(countdownInterval.current);
     };
-  }, []);  // --- Playback Logic --- 
+  }, []);
+
+  // Lazy load audio only when needed
+  const getOrCreateAudio = (soundId) => {
+    if (!audioRefs.current[soundId]) {
+      const sound = soundsData.find(s => s.id === soundId);
+      if (sound) {
+        const audio = new Audio(sound.audioSrc);
+        
+        // Configure audio for seamless looping
+        audio.loop = true;
+        audio.volume = volumes[soundId] || 0;
+        audio.preload = 'none'; // Only load when needed
+        
+        audio.addEventListener('error', (e) => {
+          console.error(`Audio loading error for ${soundId}:`, e);
+        });
+        
+        audioRefs.current[soundId] = audio;
+      }
+    }
+    return audioRefs.current[soundId];
+  };  // --- Playback Logic --- 
   const playAudio = (soundId) => {
-    const audio = audioRefs.current[soundId];
+    const audio = getOrCreateAudio(soundId);
     if (audio && audio.paused) {
       // console.log(`Playing ${soundId}`);
       audio.play().catch(e => console.error(`Error playing ${soundId}:`, e));
@@ -108,7 +114,7 @@ const Sounds = () => {
   };
 
   const pauseAudio = (soundId) => {
-    const audio = audioRefs.current[soundId];
+    const audio = audioRefs.current[soundId]; // Only use existing audio
     if (audio && !audio.paused) {
       // console.log(`Pausing ${soundId}`);
       audio.pause();
@@ -122,7 +128,7 @@ const Sounds = () => {
   const toggleSound = useCallback((soundId) => {
     setPlayingSounds(prev => {
       const isNowPlaying = !prev[soundId];
-      const audio = audioRefs.current[soundId];
+      const audio = getOrCreateAudio(soundId); // Create audio if needed
       
       if (audio) {
         if (isNowPlaying) {
@@ -130,6 +136,8 @@ const Sounds = () => {
           if (volumes[soundId] === 0) {
             setVolumes(prevVolumes => ({ ...prevVolumes, [soundId]: 0.3 }));
             audio.volume = 0.3;
+          } else {
+            audio.volume = volumes[soundId];
           }
           playAudio(soundId);
         } else {
@@ -144,9 +152,11 @@ const Sounds = () => {
     const newVolume = parseFloat(value);
     setVolumes(prev => ({ ...prev, [soundId]: newVolume }));
     
-    // Apply volume to audio instance
+    // Apply volume to audio instance if it exists
     const audio = audioRefs.current[soundId];
-    if (audio) audio.volume = newVolume;
+    if (audio) {
+      audio.volume = newVolume;
+    }
     
     // Volume change doesn't affect playing state, only adjusts volume
   }, []);
@@ -315,8 +325,7 @@ const Sounds = () => {
               >
                 <sound.Icon />
               </IconWrapper>
-              <SoundLabel>{sound.title}</SoundLabel>
-              <VolumeSliderWrapper>
+              <SoundLabel>{sound.title}</SoundLabel>              <VolumeSliderWrapper>
                 <IndividualVolumeSlider
                   type="range"
                   min="0"
@@ -327,6 +336,9 @@ const Sounds = () => {
                     e.stopPropagation(); // Prevent card click when adjusting volume
                     handleVolumeChange(sound.id, e.target.value);
                   }}
+                  onClick={(e) => e.stopPropagation()} // Prevent card click on slider click
+                  onMouseDown={(e) => e.stopPropagation()} // Prevent card click on mouse down
+                  onPointerDown={(e) => e.stopPropagation()} // Prevent card click on pointer down
                   title={`${sound.title} Volume: ${Math.round(volumes[sound.id] * 100)}%`}
                   // Slider is always enabled, but sound only plays if toggled on AND volume > 0
                 />

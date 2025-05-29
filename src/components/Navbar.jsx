@@ -60,12 +60,12 @@ const Navbar = () => {
           </HamburgerIcon>
         </MobileMenuButton>
         <NavLinks isOpen={isMobileMenuOpen}>
-          <NavItem>
-            <NavLink
+          <NavItem>            <NavLink
               to="/"
               active={location.pathname === "/" ? "true" : "false"}
             >
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -81,12 +81,12 @@ const Navbar = () => {
               </motion.div>
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink
+          <NavItem>            <NavLink
               to="/meditate"
               active={location.pathname === "/meditate" ? "true" : "false"}
             >
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -102,12 +102,12 @@ const Navbar = () => {
                 Meditate
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>
-            <NavLink
+          </NavItem>          <NavItem>            <NavLink
               to="/sounds"
               active={location.pathname === "/sounds" ? "true" : "false"}
             >
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -125,13 +125,13 @@ const Navbar = () => {
               </motion.div>
             </NavLink>
           </NavItem>
-          <NavItem>
-            <ExternalNavLink
+          <NavItem>            <ExternalNavLink
               href="https://shop.mm4all.com/meditation-and-mindfulness/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -148,13 +148,13 @@ const Navbar = () => {
             </ExternalNavLink>
           </NavItem>{" "}
           <NavItem>
-            {" "}
-            <NavLink
+            {" "}            <NavLink
               to="/resources"
               active={location.pathname === "/resources" ? "true" : "false"}
             >
               {" "}
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -173,13 +173,13 @@ const Navbar = () => {
             </NavLink>
           </NavItem>{" "}
           <NavItem>
-            {" "}
-            <NavLink
+            {" "}            <NavLink
               to="/about"
               active={location.pathname === "/about" ? "true" : "false"}
             >
               {" "}
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
@@ -197,13 +197,13 @@ const Navbar = () => {
             </NavLink>
           </NavItem>{" "}
           <NavItem>
-            {" "}
-            <NavLink
+            {" "}            <NavLink
               to="/contact"
               active={location.pathname === "/contact" ? "true" : "false"}
             >
               {" "}
               <motion.div
+                style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
