@@ -950,19 +950,17 @@ const SoundControlCard = styled(motion.div)`
 `;
 
 const IconWrapper = styled.div`
-  padding: 0.6rem; /* Adjusted padding */
+  padding: 0.8rem; /* Adjusted padding */
   margin-bottom: 0.6rem;
   border-radius: 50%;
   transition: all 0.2s ease;
   color: ${(props) =>
-    props.isActive
-      ? "var(--primary-color, #8a2be2)"
-      : "var(--text-light, #ccc)"};
+    props.isActive ? "var(--tertiary-color)" : "var(--primary-color)"};
   border: 2px solid transparent; // Border removed, background indicates active
   background-color: ${(props) =>
     props.isActive
-      ? "rgba(var(--primary-color-rgb, 138, 43, 226), 0.15)"
-      : "transparent"};
+      ? "rgba(var(--primary-color-rgb, 138, 43, 226), 0.5)"
+      : "rgba(var(--primary-color-rgb, 138, 43, 226), 0.15)"};
   cursor: pointer; /* Icon is now the clickable toggle */
 
   svg {
