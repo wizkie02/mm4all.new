@@ -102,27 +102,26 @@ const Navbar = () => {
                 Meditate
               </motion.div>
             </NavLink>
-          </NavItem>
-          <NavItem>
+          </NavItem>          <NavItem>
             <NavLink
-              to="/sleep-sounds"
-              active={location.pathname === "/sleep-sounds" ? "true" : "false"}
+              to="/sounds"
+              active={location.pathname === "/sounds" ? "true" : "false"}
             >
               <motion.div
                 whileHover={{ y: -2 }}
                 animate={{
                   color:
-                    location.pathname === "/sleep-sounds"
+                    location.pathname === "/sounds"
                       ? "var(--lavender-dark)"
                       : "var(--text-dark)",
                   fontWeight:
-                    location.pathname === "/sleep-sounds" ? "700" : "500",
+                    location.pathname === "/sounds" ? "700" : "500",
                   letterSpacing:
-                    location.pathname === "/sleep-sounds" ? "0.02em" : "0",
+                    location.pathname === "/sounds" ? "0.02em" : "0",
                 }}
                 transition={{ duration: 0.3 }}
               >
-                Sleep Sounds
+                Sounds
               </motion.div>
             </NavLink>
           </NavItem>

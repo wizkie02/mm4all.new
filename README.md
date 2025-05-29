@@ -7,7 +7,7 @@ A modern, interactive React website for meditation and mindfulness practices.
 - **Interactive UI**: Beautiful animations and cursor effects for an immersive experience
 - **Meditation Library**: Browse and filter different meditations
 - **Meditation Player**: Play meditation sessions with custom audio controls
-- **Sleep Sounds**: Background sounds to help you relax and sleep
+- **Sounds**: Background sounds to help you relax and sleep
 - **Shop**: Browse and purchase meditation accessories
 - **Responsive Design**: Works on mobile, tablet, and desktop
 
@@ -58,7 +58,7 @@ The site will be available at http://localhost:5173 (or the port shown in your t
 - `HomePage.jsx`: Landing page with introduction and featured content
 - `MeditationLibrary.jsx`: Browse and filter meditations
 - `MeditationPlayer.jsx`: Play and control meditations
-- `SleepSounds.jsx`: Library of ambient sounds for sleep and relaxation
+- `Sounds.jsx`: Library of ambient sounds for sleep and relaxation
 - `Shop.jsx`: E-commerce section for meditation products
 - `Resources.jsx`: Articles and guides about meditation
 - `About.jsx`: Information about MM4All

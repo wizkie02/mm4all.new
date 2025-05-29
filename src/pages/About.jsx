@@ -61,7 +61,7 @@ const About = () => {
             <p>So he set out to change that.</p>
             <p>
               With a team of mindfulness practitioners, educators, and
-              creatives, Dirk created Meditation 4 All—a space where anyone,
+              creatives, Dirk created Meditation & Mindfulness 4 All—a space where anyone,
               regardless of experience, age, or background, could find calm
               through simple, approachable meditation.
             </p>

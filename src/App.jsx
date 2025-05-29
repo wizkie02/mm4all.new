@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import MeditationLibrary from "./pages/MeditationLibrary";
 import MeditationPlayer from "./pages/MeditationPlayer";
-import SleepSounds from "./pages/SleepSounds";
+import Sounds from "./pages/Sounds";
 import Resources from "./pages/Resources";
 import ResourceDetailPage from "./pages/ResourceDetailPage";
 import About from "./pages/About";
@@ -60,12 +60,11 @@ const AppContent = () => {
                     <MeditationPlayer />
                   </PageTransition>
                 }
-              />
-              <Route
-                path="/sleep-sounds"
+              />              <Route
+                path="/sounds"
                 element={
                   <PageTransition>
-                    <SleepSounds />
+                    <Sounds />
                   </PageTransition>
                 }
               />

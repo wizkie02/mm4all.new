@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`  :root {
     --primary-color-rgb: 161, 155, 232;
     --secondary-color: #A19FBE; /* Muted lavender for accents */
     --tertiary-color: #F0EFFC; /* Very light lavender for backgrounds */
+    --accent-color: #8B5F9E; /* Purple accent color */
     --lavender: #A19BE8; /* Main lavender purple */
     --lavender-light: #C5C1F2; /* Lighter lavender */
     --lavender-dark: #777593; /* Darker lavender */

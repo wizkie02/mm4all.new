@@ -13,20 +13,31 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email.trim() !== "") {
-      // This would normally connect to a backend API
-      console.log("Subscribing email:", email);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (email.trim() !== "") {
+    try {
+      // Gửi dữ liệu email tới webhook
+      await fetch("https://hook.eu2.make.com/qa5b4ub9lxpzjlw43l7otdi66gw8rjck", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
       setSubscribed(true);
       setEmail("");
 
-      // Reset after 3 seconds
+      // Reset sau 3 giây
       setTimeout(() => {
         setSubscribed(false);
       }, 3000);
+    } catch (error) {
+      console.error("Error subscribing:", error);
     }
-  };
+  }
+};
 
   return (
     <FooterContainer>
@@ -34,9 +45,7 @@ const Footer = () => {
         <LeftGroup>
           <LogoSection>
             <Logo src={logo} alt="Meditation and Mindfulness 4 All" />
-          </LogoSection>
-
-          <EmailSignup>
+          </LogoSection>          <EmailSignup>
             <h3>Stay Connected</h3>
             <p>Join our newsletter for mindfulness tips and updates</p>
             <FormContainer onSubmit={handleSubmit}>
@@ -51,6 +60,11 @@ const Footer = () => {
                 {subscribed ? "Subscribed!" : "Subscribe"}
               </SubscribeButton>
             </FormContainer>
+            {subscribed && (
+              <SuccessMessage>
+                ✅ Thank you for subscribing! You'll receive mindfulness tips and updates in your inbox.
+              </SuccessMessage>
+            )}
           </EmailSignup>
         </LeftGroup>
 
@@ -305,6 +319,32 @@ const SubscribeButton = styled.button`
 
   &:active {
     transform: translateY(0);
+  }
+`;
+
+const SuccessMessage = styled.div`
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(160, 155, 231, 0.2);
+  border: 1px solid rgba(160, 155, 231, 0.4);
+  border-radius: 8px;
+  color: #A09BE7;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideInFromTop 0.4s ease-out;
+
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
