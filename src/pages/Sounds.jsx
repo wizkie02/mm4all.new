@@ -9,18 +9,38 @@ import styled, { keyframes, css } from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackgroundEffect from '../components/BackgroundEffect'; // Keep original background
 
-// --- Placeholder Icons (Increased Size) ---
+// --- Sound-Related Icons (Improved & More Relevant) ---
 const iconSize = "50px"; // Increased icon size
-const IconRain = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 13.15V4.5a4 4 0 00-8 0v8.65m.8 4.7a4 4 0 006.4 0M12 17.85v4.6M8 16.5l-2 2m12-2l2 2"></path></svg>;
-const IconThunder = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>;
-const IconWaves = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6c3 0 5 2 8 2s5-2 8-2 3 2 3 2v10c-3 0-5-2-8-2s-5 2-8 2-3-2-3-2V6z"></path><path d="M3 12c3 0 5 2 8 2s5-2 8-2 3 2 3 2"></path></svg>;
-const IconWind = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"></path></svg>;
-const IconFire = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19c0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2s2 .9 2 2zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 14.5c-2.5 0-4.5-2-4.5-4.5 0-1.7.9-3.2 2.3-4M12 10c.9 0 1.7.3 2.3.8"></path></svg>;
-const IconBirds = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 7.5c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8zM18 16l4 4M18 4l4-4"></path></svg>;
-const IconCrickets = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10m0-4V2m8 10l-2.83 2.83M6.83 6.83L4 4m13.17 13.17L14 14m-4 4l-2.83 2.83M6.83 17.17L4 20m13.17-13.17L14 10"></path></svg>;
-const IconCoffeeShop = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3m4-3v3m4-3v3"></path></svg>;
-const IconSingingBowl = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8c-4.4 0-8 1.8-8 4s3.6 4 8 4 8-1.8 8-4-3.6-4-8-4zM4 12H2m18 0h2M12 4V2m0 18v2M7 17l-2 2m14-2l2 2M7 7l-2-2m14 2l2-2"></path></svg>;
-const IconWhiteNoise = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>;
+
+// Rain with cloud and droplets
+const IconRain = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} fill="currentColor"><g transform="matrix(0.77 0 0 0.77 12 12)"><path transform="translate(-15, -14.51)" d="M 17.5 3 C 15.190761059566523 3.002490252604338 13.0562172598275 4.2299830293830745 11.892577999999999 6.224609400000004 C 11.443078905277378 6.076999566968081 10.973113793940723 6.0011987273179805 10.499999999999998 6.000000000000001 C 8.197284862857309 6.001465163573856 6.2672095425491285 7.7410614542506035 6.027343800000001 10.03125 C 3.740186742742711 10.272814773669591 2.0032499725009307 12.200123833307845 2.000000000000001 14.5 C 2 16.98528137423857 4.01471862576143 19 6.5 19 L 23.5 19 C 25.98528137423857 19 28 16.98528137423857 28 14.5 C 27.9987457043911 12.198629699659133 26.261296786905486 10.269067356465818 23.972655999999997 10.027344 C 23.988909987186254 9.852005618892 23.998032179376374 9.676079151721655 24 9.499999999999998 C 24 5.910149126099842 21.089850873900158 3 17.5 3 z M 5.984375 20.986328 C 5.4328588034331595 20.994949073062962 4.992447279873388 21.448468138368238 5 22 L 5 23 C 4.994899710454515 23.360635916577568 5.184375296169332 23.696081364571608 5.495872849714331 23.877887721486516 C 5.80737040325933 24.059694078401428 6.192629596740671 24.059694078401428 6.50412715028567 23.877887721486516 C 6.815624703830668 23.696081364571608 7.005100289545485 23.360635916577568 7 23 L 7 22 C 7.0037014610101975 21.729699667173673 6.897823324754008 21.46941334607979 6.706490332869745 21.27844827870817 C 6.515157340985481 21.087483211336544 6.254667707530458 20.98210627103109 5.984375 20.986328 z M 17.984375 20.986328 C 17.43285880343316 20.994949073062962 16.99244727987339 21.448468138368238 17 22 L 17 23 C 16.994899710454515 23.360635916577568 17.184375296169332 23.696081364571608 17.49587284971433 23.877887721486516 C 17.80737040325933 24.059694078401428 18.19262959674067 24.059694078401428 18.50412715028567 23.877887721486516 C 18.815624703830668 23.696081364571608 19.005100289545485 23.360635916577568 19 23 L 19 22 C 19.0037014610102 21.729699667173673 18.897823324754008 21.46941334607979 18.706490332869745 21.27844827870817 C 18.515157340985482 21.087483211336544 18.25466770753046 20.98210627103109 17.984375 20.986328 z M 11.984375 22.986328 C 11.43285880343316 22.994949073062962 10.992447279873389 23.448468138368238 11 24 L 11 25 C 10.994899710454515 25.360635916577568 11.184375296169332 25.696081364571608 11.495872849714331 25.877887721486516 C 11.80737040325933 26.059694078401428 12.192629596740671 26.059694078401428 12.504127150285669 25.877887721486516 C 12.815624703830668 25.696081364571608 13.005100289545485 25.360635916577568 13 25 L 13 24 C 13.003701461010198 23.729699667173673 12.89782332475401 23.46941334607979 12.706490332869745 23.27844827870817 C 12.51515734098548 23.087483211336544 12.254667707530459 22.98210627103109 11.984375 22.986328 z M 23.984375 22.986328 C 23.43285880343316 22.994949073062962 22.99244727987339 23.448468138368238 23 24 L 23 25 C 22.994899710454515 25.360635916577568 23.184375296169332 25.696081364571608 23.49587284971433 25.877887721486516 C 23.80737040325933 26.059694078401428 24.19262959674067 26.059694078401428 24.50412715028567 25.877887721486516 C 24.815624703830668 25.696081364571608 25.005100289545485 25.360635916577568 25 25 L 25 24 C 25.0037014610102 23.729699667173673 24.897823324754008 23.46941334607979 24.706490332869745 23.27844827870817 C 24.515157340985482 23.087483211336544 24.25466770753046 22.98210627103109 23.984375 22.986328 z"/></g></svg>;
+
+// Lightning bolt for thunder
+const IconThunder = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>;
+
+// Ocean waves
+const IconWaves = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12c3-2 6-2 9 0s6 2 9 0"/><path d="M2 8c3-2 6-2 9 0s6 2 9 0"/><path d="M2 16c3-2 6-2 9 0s6 2 9 0"/><path d="M2 20c3-2 6-2 9 0s6 2 9 0"/></svg>;
+
+// Wind swirls
+const IconWind = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M17.7 7.7a2.5 2.5 0 111.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1112 8H2"/><path d="M14.6 20.6A2 2 0 1017 17H6"/></svg>;
+
+// Fire flames
+const IconFire = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>;
+
+// Flying bird
+const IconBirds = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 008-8V7a4 4 0 00-7.28-2.3L2 20"/><path d="M20 7l2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 003.84-10.61"/></svg>;
+
+// Cricket insect body
+const IconCrickets = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} fill="currentColor"><g transform="matrix(0.83 0 0 0.83 12 12)"><g><g transform="matrix(1 0 0 1 1.51 0.99)"><path transform="translate(-13.51, -12.99)" d="M 24 13.64 C 24.038970924329494 13.505457895738477 24.020889875399114 13.360809504295448 23.95 13.24 C 23.875825397922938 13.111007423520922 23.747055438774495 13.02270802296199 23.6 13 L 21.200000000000003 12.5 L 20.490000000000002 6.87 C 20.428976595398225 6.365034935656987 19.99862567252134 5.986326123525329 19.490000000000002 5.99 C 19.180000000000003 5.99 17.94 6.15 15.370000000000001 8.21 C 14.42353649223033 8.906245896003183 13.636092929464242 9.7959548565311 13.059999999999997 10.820000000000004 L 9.06 9.98 C 8.927739794106241 9.9555124520064 8.79116091177273 9.984265900918718 8.68 10.06 C 8.562525579330824 10.133143978357442 8.482335048995647 10.253429773860207 8.459999999999999 10.39 C 8.270583589542026 11.493326875669872 8.173580258829169 12.610537650086913 8.17 13.730000000000004 C 7.4488002400635045 13.940803833464848 6.771362922733774 14.279522492129713 6.169999999999998 14.73 C 5.671921680341049 15.220278250161757 5.307094170848405 15.829471355635318 5.109999999999999 16.5 L 5 16.76 C 4.853975875917813 17.191342385208472 4.455187415251563 17.486445846101496 4 17.5 C 3.4477152501692068 17.5 3 17.947715250169207 3 18.5 C 3 19.052284749830793 3.4477152501692068 19.5 4 19.5 C 5.327075181684912 19.501710641311277 6.505019593462666 18.650524782115706 6.919999999999999 17.39 L 7 17.14 C 7.185838965297113 16.57868674744305 7.610525576840195 16.128372495548234 8.16 15.91 L 9.35 15.44 C 9.57954442341813 15.58559821615197 9.816533620128746 15.719113256552319 10.059999999999997 15.84 L 9.62 16.74 C 9.432920951194067 17.19954575561842 8.986166173459253 17.50001799551086 8.489999999999998 17.5 C 7.937715250169205 17.5 7.489999999999998 17.947715250169207 7.489999999999998 18.5 C 7.489999999999998 19.052284749830793 7.937715250169205 19.5 8.489999999999998 19.5 C 9.797128905921179 19.533274387699862 10.989746756302521 18.758072784951988 11.489999999999998 17.55 L 11.959999999999999 16.55 C 11.959999999999999 16.55 14.629999999999999 17.18 14.87 17.220000000000002 C 15.813419963037529 17.36486014538433 16.765640476426064 17.445047135985465 17.719999999999995 17.459999999999997 C 17.862621737309865 17.45795873865088 17.998872471926674 17.40059000828591 18.099999999999998 17.3 C 18.194134849085287 17.189291636621284 18.237649261137964 17.044243596445696 18.22 16.900000000000002 L 17.669999999999998 12.090000000000003 C 17.641953085644964 11.874045184685816 17.482312552794866 11.698440598550707 17.27 11.650000000000004 L 15.18 11.220000000000004 C 15.605508388579695 10.663208746559818 16.10320874655981 10.1655083885797 16.66 9.740000000000006 C 17.281917883986424 9.212462554788832 17.951456010651867 8.743785866123025 18.659999999999997 8.340000000000005 L 19.93 18.5 L 19.5 18.5 C 19.085786437626904 18.5 18.75 18.835786437626904 18.75 19.25 C 18.75 19.664213562373096 19.085786437626904 20 19.5 20 L 22.5 20 C 22.914213562373096 20 23.25 19.664213562373096 23.25 19.25 C 23.25 18.835786437626904 22.914213562373096 18.5 22.5 18.5 L 22 18.5 L 21.75 16.5 C 22.792340196802336 15.818109822302892 23.582630552592928 14.813562970053518 24 13.64 Z"/></g><g transform="matrix(1 0 0 1 -8.46 -3.07)"><path transform="translate(-3.54, -8.93)" d="M 7.07 10 C 7.12117665417391 9.742082264929062 6.963840725855768 9.488596602638724 6.71 9.42 C 5.254845676311582 9.139180338399212 3.8852376453906237 8.522856724484779 2.7100000000000026 7.619999999999999 C 2.3262194948554176 7.363262443331845 2.0684474820102663 6.956636169547945 1.9999999999999998 6.5 C 1.9861842900698639 6.209010195865541 2.0668672460757795 5.921357917931408 2.23 5.68 C 2.6138379011324013 5.282354980121829 2.602645019878171 4.648837901132401 2.205 4.265 C 1.8073549801218287 3.8811620988675983 1.1738379011324014 3.892354980121829 0.79 4.29 C 0.25451199611011943 4.898990159712081 -0.028086681109662615 5.689551016238308 4.440892098500626e-16 6.5 C 0 7.79 0.93 9 2.6 10 C 2.436263621588657 11.066326762964513 2.8106644007833426 12.144601007045207 3.599999999999999 12.879999999999997 C 4.283714502359641 13.550998228640925 5.212580137872961 13.912424545961283 6.169999999999998 13.879999999999999 C 6.301679965098184 13.882687908889633 6.428897903017545 13.83225211354657 6.522965015983315 13.740066342840116 C 6.617032128949084 13.647880572133662 6.670027430527338 13.521707392769061 6.67 13.389999999999999 C 6.718437829006757 12.251592428402715 6.85214579242502 11.1184174384329 7.069999999999995 10.000000000000007 Z"/></g></g></g></svg>;
+
+// Coffee cup with steam
+const IconCoffeeShop = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/></svg>;
+
+// Tibetan singing bowl with sound vibrations
+const IconSingingBowl = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14c0 4.4 3.6 8 8 8s8-3.6 8-8"/><path d="M20 14c0-1.1-3.6-2-8-2s-8 .9-8 2"/><path d="M12 12v-4"/><path d="M8 7a4 4 0 018 0"/><circle cx="12" cy="6" r="1"/><path d="M7 12c-1-1-1-2 0-3m10 3c1-1 1-2 0-3"/><path d="M5 15c-1-1-1-2 0-3m14 3c1-1 1-2 0-3"/></svg>;
+
+// Sound waves for white noise
+const IconWhiteNoise = () => <svg viewBox="0 0 24 24" width={iconSize} height={iconSize} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M9 15h.01"/><path d="M15 15h.01"/><path d="M12 9h.01"/><path d="M12 15h.01"/><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M12 12h.01"/><path d="M6 12h.01"/><path d="M18 12h.01"/><path d="M3 12h.01"/><path d="M21 12h.01"/></svg>;
 // --- End Placeholder Icons ---
 
 // --- Sound Data (Matching asoftmurmur, using placeholder audio) ---
@@ -32,9 +52,9 @@ const soundsData = [
   { id: 'fire', title: 'Fire', Icon: IconFire, audioSrc: 'https://cdn.freesound.org/previews/729/729395_12863902-lq.mp3' },
   { id: 'birds', title: 'Birds', Icon: IconBirds, audioSrc: 'https://cdn.freesound.org/previews/468/468449_3405405-lq.mp3' },
   { id: 'crickets', title: 'Crickets', Icon: IconCrickets, audioSrc: 'https://cdn.freesound.org/previews/210/210540_985466-lq.mp3' },
-  { id: 'coffeeshop', title: 'Coffee Shop', Icon: IconCoffeeShop, audioSrc: 'https://cdn.freesound.org/previews/609/609250_1445263-lq.mp3' },
+  { id: 'coffeeshop', title: 'Coffee Shop', Icon: IconCoffeeShop, audioSrc: 'https://cdn.freesound.org/previews/453/453074_3569783-lq.mp3' },
   { id: 'singingbowl', title: 'Singing Bowl', Icon: IconSingingBowl, audioSrc: 'https://cdn.freesound.org/previews/169/169289_71257-lq.mp3' },
-  { id: 'whitenoise', title: 'White Noise', Icon: IconWhiteNoise, audioSrc: 'https://cdn.freesound.org/previews/255/255890_1216015-lq.mp3' },
+  { id: 'whitenoise', title: 'White Noise', Icon: IconWhiteNoise, audioSrc: 'https://cdn.freesound.org/previews/249/249313_4056007-lq.mp3' },
 ];
 
 const Sounds = () => {
@@ -279,9 +299,7 @@ const Sounds = () => {
               </CancelTimerButton>
             </TimerDisplay>
           )}
-        </OtherControls>
-
-        <SoundGridContainer>
+        </OtherControls>        <SoundGridContainer>
           {soundsData.map((sound, index) => (            <SoundControlCard
               key={sound.id}
               as={motion.div}
@@ -289,11 +307,11 @@ const Sounds = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05, duration: 0.3 }}
               isActive={playingSounds[sound.id]}
+              onClick={() => toggleSound(sound.id)}
+              title={`Toggle ${sound.title}`}
             >
               <IconWrapper 
-                onClick={() => toggleSound(sound.id)}
                 isActive={playingSounds[sound.id]}
-                title={`Toggle ${sound.title}`}
               >
                 <sound.Icon />
               </IconWrapper>
@@ -305,7 +323,10 @@ const Sounds = () => {
                   max="1"
                   step="0.01"
                   value={volumes[sound.id]}
-                  onChange={(e) => handleVolumeChange(sound.id, e.target.value)}
+                  onChange={(e) => {
+                    e.stopPropagation(); // Prevent card click when adjusting volume
+                    handleVolumeChange(sound.id, e.target.value);
+                  }}
                   title={`${sound.title} Volume: ${Math.round(volumes[sound.id] * 100)}%`}
                   // Slider is always enabled, but sound only plays if toggled on AND volume > 0
                 />
@@ -545,22 +566,24 @@ const SoundControlCard = styled(motion.div)`
   border: 1px solid ${props => props.isActive ? 'var(--primary-color, #8a2be2)' : 'rgba(255, 255, 255, 0.2)'};
   transition: all 0.3s ease;
   backdrop-filter: blur(2px);
+  cursor: pointer; /* Make whole card clickable */
+  
+  &:hover {
+    background: ${props => props.isActive ? 'rgba(var(--primary-color-rgb, 138, 43, 226), 0.35)' : 'rgba(255, 255, 255, 0.15)'};
+    border-color: ${props => props.isActive ? 'var(--primary-color, #8a2be2)' : 'rgba(255, 255, 255, 0.4)'};
+    transform: translateY(-2px);
+  }
 `;
 
 const IconWrapper = styled.div`
   padding: 0.6rem; /* Adjusted padding */
   margin-bottom: 0.6rem;
   border-radius: 50%;
-  cursor: pointer;
   transition: all 0.2s ease;
   color: ${props => props.isActive ? 'var(--primary-color, #8a2be2)' : 'var(--text-light, #ccc)'};
   border: 2px solid transparent; // Border removed, background indicates active
   background-color: ${props => props.isActive ? 'rgba(var(--primary-color-rgb, 138, 43, 226), 0.15)' : 'transparent'};
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
-  }
+  pointer-events: none; /* Let card handle clicks */
 
   svg {
     display: block;
