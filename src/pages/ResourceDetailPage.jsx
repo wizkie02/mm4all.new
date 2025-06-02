@@ -79,7 +79,7 @@ const ResourceContent = styled.div`
 
 const BackLink = styled(Link)`
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;

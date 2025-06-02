@@ -913,7 +913,7 @@ const SoundGridContainer = styled(motion.div)`
     grid-template-columns: repeat(5, 1fr); /* Force 5 columns */
   }
   @media (max-width: 480px) {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 `;

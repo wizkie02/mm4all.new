@@ -363,7 +363,7 @@ const HeaderContent = styled.div`
 const ContentSection = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 4rem;
+  padding: 0 2rem 4rem;
 `;
 
 const AboutSection = styled.div`

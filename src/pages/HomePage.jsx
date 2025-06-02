@@ -4,9 +4,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaLeaf, FaMoon, FaBrain } from "react-icons/fa";
 import heroBg from "../assets/hero-background.jpg";
-import improveIcon from "../assets/icon-improve-sleep.png";
-import reduceIcon from "../assets/icon-reduce-stress.png";
-import groundIcon from "../assets/icon-stay-grounded.png";
 
 const HomePage = () => {
   return (
@@ -103,7 +100,7 @@ const HomePage = () => {
           <CtaText>
             Join the community which has discovered the benefits of regular
             mindfulness practice.
-          </CtaText>{" "}
+          </CtaText>
           <PrimaryButton
             as={Link}
             to="/meditate"
@@ -353,7 +350,7 @@ const CtaSection = styled.section`
 const CtaContent = styled.div`
   max-width: 700px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 `;
 
 const CtaTitle = styled.h2`
