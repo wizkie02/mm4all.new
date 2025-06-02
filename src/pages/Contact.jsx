@@ -209,6 +209,7 @@ const ContactImage = styled.img`
   width: 40%;
   height: 100%;
   max-height: 100%;
+  border-radius: var(--border-radius);
   @media (max-width: 1024px) {
     display: none;
   }

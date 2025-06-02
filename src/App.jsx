@@ -21,6 +21,7 @@ import Contact from "./pages/Contact";
 import CursorEffect from "./components/CursorEffect";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
+import NotFoundPage from "./pages/NotFoundPage";
 
 // AnimatePresence wrapper needs to be inside the Router context
 // but we also need access to location, so we create a separate component
@@ -60,7 +61,8 @@ const AppContent = () => {
                     <MeditationPlayer />
                   </PageTransition>
                 }
-              />              <Route
+              />
+              <Route
                 path="/sounds"
                 element={
                   <PageTransition>
@@ -100,6 +102,7 @@ const AppContent = () => {
                   </PageTransition>
                 }
               />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </AnimatePresence>
         </MainContent>
