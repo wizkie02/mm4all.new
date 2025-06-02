@@ -208,8 +208,6 @@ const ContactImage = styled.img`
   object-fit: cover;
   width: auto;
   max-width: 40%;
-  height: 100%;
-  max-height: 100%;
   border-radius: var(--border-radius);
   @media (max-width: 1024px) {
     display: none;
