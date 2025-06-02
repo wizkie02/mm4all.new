@@ -60,7 +60,8 @@ const Navbar = () => {
           </HamburgerIcon>
         </MobileMenuButton>
         <NavLinks isOpen={isMobileMenuOpen}>
-          <NavItem>            <NavLink
+          <NavItem>
+            <NavLink
               to="/"
               active={location.pathname === "/" ? "true" : "false"}
             >
@@ -81,7 +82,8 @@ const Navbar = () => {
               </motion.div>
             </NavLink>
           </NavItem>
-          <NavItem>            <NavLink
+          <NavItem>
+            <NavLink
               to="/meditate"
               active={location.pathname === "/meditate" ? "true" : "false"}
             >
@@ -102,7 +104,9 @@ const Navbar = () => {
                 Meditate
               </motion.div>
             </NavLink>
-          </NavItem>          <NavItem>            <NavLink
+          </NavItem>
+          <NavItem>
+            <NavLink
               to="/sounds"
               active={location.pathname === "/sounds" ? "true" : "false"}
             >
@@ -114,8 +118,7 @@ const Navbar = () => {
                     location.pathname === "/sounds"
                       ? "var(--lavender-dark)"
                       : "var(--text-dark)",
-                  fontWeight:
-                    location.pathname === "/sounds" ? "700" : "500",
+                  fontWeight: location.pathname === "/sounds" ? "700" : "500",
                   letterSpacing:
                     location.pathname === "/sounds" ? "0.02em" : "0",
                 }}
@@ -125,7 +128,8 @@ const Navbar = () => {
               </motion.div>
             </NavLink>
           </NavItem>
-          <NavItem>            <ExternalNavLink
+          <NavItem>
+            <ExternalNavLink
               href="https://shop.mm4all.com/meditation-and-mindfulness/"
               target="_blank"
               rel="noopener noreferrer"
@@ -146,13 +150,12 @@ const Navbar = () => {
                 Shop
               </motion.div>
             </ExternalNavLink>
-          </NavItem>{" "}
+          </NavItem>
           <NavItem>
-            {" "}            <NavLink
+            <NavLink
               to="/resources"
               active={location.pathname === "/resources" ? "true" : "false"}
             >
-              {" "}
               <motion.div
                 style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
@@ -171,13 +174,12 @@ const Navbar = () => {
                 Resources
               </motion.div>
             </NavLink>
-          </NavItem>{" "}
+          </NavItem>
           <NavItem>
-            {" "}            <NavLink
+            <NavLink
               to="/about"
               active={location.pathname === "/about" ? "true" : "false"}
             >
-              {" "}
               <motion.div
                 style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
@@ -195,13 +197,12 @@ const Navbar = () => {
                 About
               </motion.div>
             </NavLink>
-          </NavItem>{" "}
+          </NavItem>
           <NavItem>
-            {" "}            <NavLink
+            <NavLink
               to="/contact"
               active={location.pathname === "/contact" ? "true" : "false"}
             >
-              {" "}
               <motion.div
                 style={{ letterSpacing: "0" }} // Set initial value to prevent 'normal' animation warning
                 whileHover={{ y: -2 }}
@@ -234,10 +235,10 @@ const NavContainer = styled.nav`
   z-index: 100;
   padding: 1rem 0;
   backdrop-filter: blur(5px);
-  
+
   /* Soft blur gradient at bottom */
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;
@@ -283,9 +284,9 @@ const NavLinks = styled.ul`
   gap: 2rem;
   list-style: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: fixed;
-    top: 80px;
+    top: 97.97px;
     left: ${(props) => (props.isOpen ? "0" : "-100%")};
     flex-direction: column;
     width: 100%;
@@ -338,7 +339,7 @@ const MobileMenuButton = styled.button`
   background: none;
   border: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: block;
     z-index: 100;
   }
