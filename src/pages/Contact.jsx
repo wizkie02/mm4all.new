@@ -206,7 +206,8 @@ const ContactWrapper = styled.div`
 const ContactImage = styled.img`
   flex: 1;
   object-fit: cover;
-  width: 40%;
+  width: auto;
+  max-width: 40%;
   height: 100%;
   max-height: 100%;
   border-radius: var(--border-radius);
@@ -314,7 +315,7 @@ const FormGroup = styled.div`
 
 const FormLabel = styled.label`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 500;
 `;
 
