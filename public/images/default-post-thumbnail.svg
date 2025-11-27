@@ -1,0 +1,39 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#gradient)"/>
+  
+  <!-- Icon -->
+  <g transform="translate(150, 100)">
+    <!-- Document icon -->
+    <path d="M20 4H80C84.4183 4 88 7.58172 88 12V88C88 92.4183 84.4183 96 80 96H20C15.5817 96 12 92.4183 12 88V12C12 7.58172 15.5817 4 20 4Z" fill="#e2e8f0"/>
+    <path d="M20 4H80C84.4183 4 88 7.58172 88 12V88C88 92.4183 84.4183 96 80 96H20C15.5817 96 12 92.4183 12 88V12C12 7.58172 15.5817 4 20 4Z" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <!-- Lines representing text -->
+    <rect x="24" y="20" width="52" height="3" rx="1.5" fill="#94a3b8"/>
+    <rect x="24" y="32" width="40" height="3" rx="1.5" fill="#94a3b8"/>
+    <rect x="24" y="44" width="48" height="3" rx="1.5" fill="#94a3b8"/>
+    <rect x="24" y="56" width="36" height="3" rx="1.5" fill="#94a3b8"/>
+    
+    <!-- Image placeholder -->
+    <rect x="24" y="68" width="52" height="16" rx="2" fill="#e2e8f0" stroke="#cbd5e1"/>
+    <circle cx="32" cy="74" r="2" fill="#94a3b8"/>
+    <path d="M28 80L32 76L36 80L44 72L52 80H28Z" fill="#94a3b8"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="200" text-anchor="middle" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500">
+    MM4All Article
+  </text>
+  
+  <!-- Subtle border -->
+  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+</svg>

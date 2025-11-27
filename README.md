@@ -64,6 +64,35 @@ The site will be available at http://localhost:5173 (or the port shown in your t
 - `About.jsx`: Information about MM4All
 - `Contact.jsx`: Contact form and information
 
+## YouTube API Setup
+
+The Video Library dynamically loads videos from the MM4All YouTube channel using the YouTube Data API v3.
+
+### Setup Instructions
+
+1. **Get a YouTube API Key:**
+   - Go to [Google Cloud Console](https://console.developers.google.com/)
+   - Create a new project or select an existing one
+   - Enable the "YouTube Data API v3"
+   - Create credentials (API Key)
+   - Restrict the API key to YouTube Data API v3 for security
+
+2. **Configure the API Key:**
+   - Add your API key to the `.env` file as `VITE_YOUTUBE_API_KEY=your_api_key_here`
+   - Note: Vite requires `VITE_` prefix instead of `REACT_APP_`
+   - The app will automatically use the API key to fetch videos
+
+3. **Fallback Behavior:**
+   - If no API key is provided, the app falls back to hardcoded videos
+   - If the API fails, it automatically switches to fallback videos
+   - Users will see a warning message when using fallback mode
+
+### Channel Configuration
+
+The app is configured to fetch videos from the channel handle: `@Meditationandmindfulness-4all`
+
+To change the channel, modify the `YOUTUBE_CHANNEL_HANDLE` constant in `src/pages/MeditationLibrary.jsx`.
+
 ## Credits
 
 - Images: Various sources (replace with actual credits)

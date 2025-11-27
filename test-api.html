@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test MM4All API Connection</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>MM4All API Connection Test</h1>
+    
+    <div>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testRefreshToken()">Test Refresh Token</button>
+        <button onclick="testVerifyToken()">Test Verify Token</button>
+    </div>
+    
+    <div id="results"></div>
+
+    <script>
+        const API_BASE = 'https://mm4all.com/api';
+        let currentToken = localStorage.getItem('admin_token');
+        let currentRefreshToken = localStorage.getItem('admin_refresh_token');
+        
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+            console.log(message);
+        }
+        
+        async function testLogin() {
+            log('🔄 Testing login...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}/admin/auth/login.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'admin@mm4all.com',
+                        password: 'admin123'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentToken = data.access_token;
+                    currentRefreshToken = data.refresh_token;
+                    localStorage.setItem('admin_token', currentToken);
+                    localStorage.setItem('admin_refresh_token', currentRefreshToken);
+                    log('✅ Login successful!', 'success');
+                    log(`<pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    log('❌ Login failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                log('❌ Login error: ' + error.message, 'error');
+            }
+        }
+        
+        async function testRefreshToken() {
+            if (!currentRefreshToken) {
+                log('⚠️ No refresh token available. Please login first.', 'error');
+                return;
+            }
+
+            log('🔄 Testing refresh token...', 'info');
+
+            try {
+                const response = await fetch(`${API_BASE}/admin/auth/refresh_token.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        refresh_token: currentRefreshToken
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentToken = data.access_token;
+                    if (data.refresh_token) {
+                        currentRefreshToken = data.refresh_token;
+                        localStorage.setItem('admin_refresh_token', currentRefreshToken);
+                    }
+                    localStorage.setItem('admin_token', currentToken);
+                    log('✅ Token refresh successful!', 'success');
+                    log(`<pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    log('❌ Token refresh failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                log('❌ Token refresh error: ' + error.message, 'error');
+            }
+        }
+        
+        async function testVerifyToken() {
+            if (!currentToken) {
+                log('⚠️ No token available. Please login first.', 'error');
+                return;
+            }
+            
+            log('🔄 Testing verify token...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE}/admin/auth/verify_token.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    log('✅ Token verification successful!', 'success');
+                    log(`<pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    log('❌ Token verification failed: ' + data.error, 'error');
+                }
+            } catch (error) {
+                log('❌ Token verification error: ' + error.message, 'error');
+            }
+        }
+        
+        // Load existing tokens on page load
+        if (currentToken) {
+            log(`📝 Found existing access token: ${currentToken.substring(0, 20)}...`, 'info');
+        }
+        if (currentRefreshToken) {
+            log(`📝 Found existing refresh token: ${currentRefreshToken.substring(0, 20)}...`, 'info');
+        }
+    </script>
+</body>
+</html>

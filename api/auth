@@ -1,0 +1,34 @@
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+function authenticateRequest() {
+    $headers = getallheaders();
+    $authHeader = $headers['Authorization'] ?? $headers['authorization'] ?? '';
+
+    if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Missing or invalid Authorization header']);
+        exit;
+    }
+
+    $jwt = trim(str_replace('Bearer', '', $authHeader));
+    $secretKey = 'your_super_secret_key'; // Nên dùng biến môi trường cho an toàn
+
+    try {
+        $decoded = JWT::decode($jwt, new Key($secretKey, 'HS256'));
+
+        // Gán thông tin user vào biến toàn cục nếu cần
+        $GLOBALS['auth_user'] = $decoded->data;
+
+        // Nếu cần kiểm tra vai trò:
+        // if ($decoded->data->role !== 'superadmin') { ... }
+
+    } catch (Exception $e) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Invalid token', 'details' => $e->getMessage()]);
+        exit;
+    }
+}

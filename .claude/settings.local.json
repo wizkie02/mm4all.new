@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react\\src/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react\\src/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react\\src\\styles/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react\\src\\contexts/**)",
+      "Read(/C:\\Users\\from1\\Downloads\\mm4all_website_source\\mm4all-react\\src\\services/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
